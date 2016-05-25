@@ -3,8 +3,8 @@ import classes from './CoreLayout.scss'
 import '../../styles/core.scss'
 
 export const CoreLayout = ({ children }) => (
-  <div className='container text-center'>
-    <div className={classes.mainContainer}>
+  <div className="row">
+    <div className={`small-centered columns ${classes.mainContainer}`}>
       {children}
     </div>
   </div>
