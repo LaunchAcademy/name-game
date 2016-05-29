@@ -23,7 +23,9 @@ export function fetchIdentities () {
   return function (dispatch) {
     dispatch(requestIdentities())
     return req
-      .then(response => response.json())
+      .then(response => {
+        console.log(response); response.json()
+      })
       .then(response => dispatch(receiveIdentities(response)))
   }
 };
