@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch'
+require('isomorphic-fetch')
 import _ from 'lodash'
 
 export const RECEIVE_IDENTITIES = 'RECEIVE_IDENTITIES'
@@ -24,7 +24,7 @@ export function fetchIdentities () {
     dispatch(requestIdentities())
     return req
       .then(response => {
-        console.log(response); response.json()
+        return response.json()
       })
       .then(response => dispatch(receiveIdentities(response)))
   }

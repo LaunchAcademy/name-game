@@ -2,7 +2,7 @@ import manageIdentities, * as mod from '../../src/modules/Identity';
 
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import nock from 'nock'
+import fetchMock from 'fetch-mock'
 
 const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
@@ -40,21 +40,13 @@ describe('receiveIdentities action', () => {
 })
 
 
-//nock is having issues - need to investigate
-xdescribe('fetch identities action', () => {
+describe('fetch identities action', () => {
   afterEach(() => {
-    nock.cleanAll()
+    fetchMock.restore()
   })
 
   it('dispatches a request action', () => {
-    nock(/.*/)
-      .get('/PresidentList.json')
-      .reply(200, { body: [] })
-
-    const expectedActions = [
-      { type: mod.FETCH_TODOS_REQUEST },
-      { type: mod.FETCH_TODOS_SUCCESS, body: { todos: ['do something']  } }
-    ]
+    fetchMock.mock(/PresidentList\.json/, 'GET', [])
     const store = mockStore([])
 
     return store.dispatch(mod.fetchIdentities())
@@ -64,6 +56,13 @@ xdescribe('fetch identities action', () => {
   })
 
   it('dispatches a receive action', () => {
+    fetchMock.mock(/PresidentList\.json/, 'GET', [])
+    const store = mockStore([])
+
+    return store.dispatch(mod.fetchIdentities())
+      .then(() => {
+        expect(store.getActions()[1].type).to.eq(mod.RECEIVE_IDENTITIES)
+      })
   })
 })
 
