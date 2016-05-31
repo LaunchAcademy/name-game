@@ -66,7 +66,8 @@ if (__DEV__ && module.hot) {
   render = () => {
     try {
       renderApp(Math.random())
-    } catch (error) {
+    }
+    catch (error) {
       renderError(error)
     }
   }
