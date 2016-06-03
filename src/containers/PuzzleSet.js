@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchIdentities } from '../modules/Identity'
 
+import Puzzle from './puzzle'
+
 class PuzzleSet extends React.Component {
   componentWillMount () {
     this.props.fetchIdentities()
@@ -13,7 +15,7 @@ class PuzzleSet extends React.Component {
     if (firstIdentity) {
       return (
         <div>
-          <img src={firstIdentity.imageURL} />
+          <Puzzle identity={firstIdentity} />
         </div>
       )
     }
