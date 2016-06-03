@@ -36,6 +36,6 @@ export default function manageIdentities (state = initialState, action) {
     return action.payload
   }
   else {
-    return initialState
+    return state
   }
 }
