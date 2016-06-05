@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchIdentities } from '../modules/Identity'
 
-import Puzzle from './puzzle'
+import Puzzle from './Puzzle'
 
 class PuzzleSet extends React.Component {
   componentWillMount () {
