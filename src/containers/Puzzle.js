@@ -14,7 +14,12 @@ export class Puzzle extends React.Component {
   }
 
   guessHappened({ guess }){
+    const clear = this.props.identity.name === guess
+    const { resetForm } = this.props
     this.props.receiveGuess(this.props.identity, guess)
+    if(clear) {
+      resetForm()
+    }
   }
 
   render () {

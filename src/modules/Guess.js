@@ -47,7 +47,7 @@ export function guessReducer(state = INITIAL_STATE, action){
     return {
       ...state,
       correctCount: state.correctCount + 1,
-      guessedIdentities: state + action.identity
+      guessedIdentities: [...state.guessedIdentities, action.identity]
     }
   }
   else if(action.type === INCORRECT_GUESS){
