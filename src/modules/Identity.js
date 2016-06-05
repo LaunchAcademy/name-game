@@ -1,6 +1,8 @@
 require('isomorphic-fetch')
 import _ from 'lodash'
 
+import { CORRECT_GUESS } from './Guess'
+
 export const RECEIVE_IDENTITIES = 'RECEIVE_IDENTITIES'
 export const REQUEST_IDENTITIES = 'REQUEST_IDENTITIES'
 
@@ -34,6 +36,11 @@ const initialState = []
 export default function manageIdentities (state = initialState, action) {
   if (action.type === RECEIVE_IDENTITIES) {
     return action.payload
+  }
+  else if(action.type === CORRECT_GUESS) {
+    return state.filter((id) => {
+      return id.name !== action.identity.name
+    })
   }
   else {
     return state
