@@ -4,7 +4,6 @@ import PuzzleSet from '../../../containers/PuzzleSet'
 
 export const HomeView = () => (
   <div>
-    <h4>Who Dat?</h4>
     <PuzzleSet></PuzzleSet>
   </div>
 )
