@@ -15,7 +15,7 @@ export function requestIdentities () {
 export function receiveIdentities (identities) {
   return {
     'type': RECEIVE_IDENTITIES,
-    'payload': _.shuffle(identities)
+    'payload': identities
   }
 }
 
@@ -36,11 +36,6 @@ const initialState = []
 export default function manageIdentities (state = initialState, action) {
   if (action.type === RECEIVE_IDENTITIES) {
     return action.payload
-  }
-  else if(action.type === CORRECT_GUESS) {
-    return state.filter((id) => {
-      return id.name !== action.identity.name
-    })
   }
   else {
     return state

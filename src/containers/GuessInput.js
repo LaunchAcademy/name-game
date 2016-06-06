@@ -62,6 +62,10 @@ class GuessInput extends React.Component {
           found = true
         }
       })
+
+      if(identity.name.toLowerCase().includes(inputValue)){
+        found = true
+      }
       return found
     })
   }

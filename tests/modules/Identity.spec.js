@@ -84,18 +84,4 @@ describe('manageIdentities reducer', () => {
     const result = manageIdentities([], rightAction)
     expect(result).to.eql(rightAction.payload)
   })
-
-  it('removes an identity when a CORRECT_GUESS occurs', () => {
-    let identity = {
-      'name': 'Foo',
-      'imageURL': '/bar'
-    }
-    const identities = [identity]
-    let action = {
-      'type': CORRECT_GUESS,
-      'identity': identity
-    }
-
-    expect(manageIdentities(identities, action)).to.eql([])
-  })
 })

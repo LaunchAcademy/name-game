@@ -1,4 +1,5 @@
 import * as mod from '../../src/modules/Guess'
+import { RECEIVE_IDENTITIES } from '../../src/modules/Identity'
 
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -56,11 +57,35 @@ describe('receiveGuess', () => {
   })
 })
 
+describe('receive identities reducer', () => {
+  let action
+  let identities
+
+  beforeEach(() => {
+    identities = [{
+      name: 'foo',
+      imageURL: '/bar'
+    }]
+    action = {
+      type: RECEIVE_IDENTITIES,
+      payload: identities
+    }
+  })
+
+  it('populates identitiesToGuess', () => {
+    expect(mod.guessReducer(mod.INITIAL_STATE, action).identitiesToGuess)
+      .to.eql(identities)
+  })
+})
+
 describe('correct guess reducer', () => {
   let action
   let identity
   beforeEach(() => {
-    identity = {}
+    identity = {
+      name: 'foo',
+      imageURL: '/bar'
+    }
     action = {
       'type': mod.CORRECT_GUESS,
       'identity': identity
@@ -71,9 +96,18 @@ describe('correct guess reducer', () => {
     expect(mod.guessReducer(mod.INITIAL_STATE, action).correctCount)
       .to.eq(mod.INITIAL_STATE.correctCount + 1)
   })
+
   it('appends the identity to the list of guessedIdentities', () => {
     expect(mod.guessReducer(mod.INITIAL_STATE, action).guessedIdentities)
       .to.include(identity)
+  })
+
+  it('removes the identity from the identitiesToGuess', () => {
+    expect(mod.guessReducer({
+      ...mod.INITIAL_STATE,
+      identitiesToGuess: [identity]
+    }, action).identitiesToGuess)
+      .to.eql([])
   })
 })
 

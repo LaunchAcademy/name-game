@@ -9,23 +9,14 @@ import Puzzle from './Puzzle'
 
 class PuzzleSet extends React.Component {
   componentWillMount () {
-    this.setState({
-      currentIndex: null
-    })
-
-    this.props.fetchIdentities().then(() => {
-      let randomIndex = Math.floor(Math.random() * (this.props.identities.length))
-      this.setState({
-        currentIndex: randomIndex
-      })
-    })
+    this.props.fetchIdentities()
   }
 
   render () {
-    if (this.state.currentIndex) {
+    if (this.props.identities[0]) {
       return (
         <div>
-          <Puzzle identity={this.props.identities[this.state.currentIndex]} />
+          <Puzzle identity={this.props.identities[0]} />
         </div>
       )
     }
@@ -43,7 +34,7 @@ function mapDispatchToProps (dispatch) {
 
 function mapStateToProps (state) {
   return {
-    identities: state.identities
+    identities: state.guesses.identitiesToGuess,
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PuzzleSet)

@@ -2,6 +2,9 @@ export const RECEIVE_GUESS = 'RECEIVE_GUESS'
 export const CORRECT_GUESS = 'CORRECT_GUESS'
 export const INCORRECT_GUESS = 'INCORRECT_GUESS'
 
+import _ from 'lodash'
+import { RECEIVE_IDENTITIES } from './Identity'
+
 export function guessReceived(identity, name){
   return {
     'type': RECEIVE_GUESS,
@@ -39,7 +42,8 @@ export function incorrectGuess(guess) {
 export const INITIAL_STATE = {
   correctCount: 0,
   incorrectCount: 0,
-  guessedIdentities: []
+  guessedIdentities: [],
+  identitiesToGuess: []
 }
 
 export function guessReducer(state = INITIAL_STATE, action){
@@ -47,7 +51,16 @@ export function guessReducer(state = INITIAL_STATE, action){
     return {
       ...state,
       correctCount: state.correctCount + 1,
-      guessedIdentities: [...state.guessedIdentities, action.identity]
+      guessedIdentities: [...state.guessedIdentities, action.identity],
+      identitiesToGuess: state.identitiesToGuess.filter((id) => {
+        return id.name !== action.identity.name
+      })
+    }
+  }
+  else if(action.type === RECEIVE_IDENTITIES){
+    return {
+      ...state,
+      identitiesToGuess: _.shuffle(action.payload)
     }
   }
   else if(action.type === INCORRECT_GUESS){
