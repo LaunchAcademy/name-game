@@ -1,6 +1,8 @@
 require('isomorphic-fetch')
 import _ from 'lodash'
 
+import { CORRECT_GUESS } from './Guess'
+
 export const RECEIVE_IDENTITIES = 'RECEIVE_IDENTITIES'
 export const REQUEST_IDENTITIES = 'REQUEST_IDENTITIES'
 
@@ -13,7 +15,7 @@ export function requestIdentities () {
 export function receiveIdentities (identities) {
   return {
     'type': RECEIVE_IDENTITIES,
-    'payload': _.shuffle(identities)
+    'payload': identities
   }
 }
 

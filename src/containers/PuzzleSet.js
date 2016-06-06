@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchIdentities } from '../modules/Identity'
 
-import Puzzle from './puzzle'
+import _ from 'lodash'
+
+import Puzzle from './Puzzle'
 
 class PuzzleSet extends React.Component {
   componentWillMount () {
@@ -11,11 +13,10 @@ class PuzzleSet extends React.Component {
   }
 
   render () {
-    const firstIdentity = this.props.identities[0]
-    if (firstIdentity) {
+    if (this.props.identities[0]) {
       return (
         <div>
-          <Puzzle identity={firstIdentity} />
+          <Puzzle identity={this.props.identities[0]} />
         </div>
       )
     }
@@ -33,7 +34,7 @@ function mapDispatchToProps (dispatch) {
 
 function mapStateToProps (state) {
   return {
-    identities: state.identities
+    identities: state.guesses.identitiesToGuess,
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PuzzleSet)

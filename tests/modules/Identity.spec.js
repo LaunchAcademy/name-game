@@ -1,4 +1,5 @@
 import manageIdentities, * as mod from '../../src/modules/Identity';
+import { CORRECT_GUESS } from '../../src/modules/Guess'
 
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
