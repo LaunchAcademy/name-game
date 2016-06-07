@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchIdentities } from '../modules/Identity'
 import PuzzleStatistics from './PuzzleStatistics'
+import GuessFeedback from './GuessFeedback'
 
 import _ from 'lodash'
 
@@ -21,6 +22,7 @@ class PuzzleSet extends React.Component {
         <div>
           <PuzzleStatistics />
           <h4>Who Dat?</h4>
+          <GuessFeedback guess={ this.props.lastGuess } />
           <Puzzle identity={this.props.identities[0]} />
         </div>
       )
@@ -40,6 +42,7 @@ function mapDispatchToProps (dispatch) {
 function mapStateToProps (state) {
   return {
     identities: state.guesses.identitiesToGuess,
+    lastGuess: state.guesses.lastGuess
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PuzzleSet)

@@ -35,13 +35,14 @@ export function correctGuess(identity) {
 export function incorrectGuess(guess) {
   return {
     'type': INCORRECT_GUESS,
-    'guessedName': name
+    'guessedName': guess
   }
 }
 
 export const INITIAL_STATE = {
   correctCount: 0,
   incorrectCount: 0,
+  lastGuess: null,
   guessedIdentities: [],
   identitiesToGuess: []
 }
@@ -52,6 +53,10 @@ export function guessReducer(state = INITIAL_STATE, action){
       ...state,
       correctCount: state.correctCount + 1,
       guessedIdentities: [...state.guessedIdentities, action.identity],
+      lastGuess: {
+        correct: true,
+        name: action.identity.name
+      },
       identitiesToGuess: state.identitiesToGuess.filter((id) => {
         return id.name !== action.identity.name
       })
@@ -66,7 +71,11 @@ export function guessReducer(state = INITIAL_STATE, action){
   else if(action.type === INCORRECT_GUESS){
     return {
       ...state,
-      incorrectCount: state.incorrectCount + 1
+      incorrectCount: state.incorrectCount + 1,
+      lastGuess: {
+        correct: false,
+        name: action.guessedName
+      }
     }
   }
   else {
