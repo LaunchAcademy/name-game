@@ -2,3 +2,7 @@ input.submit-guess {
   @include button(false, $success-color);
   font-size: 1.5rem;
 }
+
+.identity-image-container {
+  min-height: 130px;
+}
