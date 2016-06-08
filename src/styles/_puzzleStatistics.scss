@@ -1,0 +1,23 @@
+ul.puzzle-statistics {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0.2rem 0.8rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  li.total-guesses {
+    font-size: 1.75rem;
+  }
+
+  label {
+    display: block;
+    font-weight: normal;
+    font-size: 0.8rem;
+  }
+}

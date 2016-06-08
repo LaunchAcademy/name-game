@@ -19,7 +19,7 @@ class PuzzleSet extends React.Component {
   render () {
     if (this.props.identities[0]) {
       return (
-        <div>
+        <div className="puzzle-set">
           <PuzzleStatistics />
           <h4>Who Dat?</h4>
           <GuessFeedback guess={ this.props.lastGuess } />

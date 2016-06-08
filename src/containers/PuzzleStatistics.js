@@ -4,16 +4,28 @@ import { connect } from 'react-redux'
 export class PuzzleStatistics extends Component {
   render () {
     return (
-      <dl>
-        <dt>Correct Guesses</dt>
-        <dd>{ this.props.correctCount }</dd>
-        <dt>Total Guesses</dt>
-        <dd>{ this.props.correctCount + this.props.incorrectCount }</dd>
-        <dt>Identities Left to Guess</dt>
-        <dd>{ this.props.leftToGuessCount }</dd>
-        <dt>Incorrect Guesses</dt>
-        <dd>{ this.props.incorrectCount }</dd>
-      </dl>
+      <div>
+        <ul className="puzzle-statistics">
+          <li className="correct-guesses">
+            <label>Correct</label>
+            { this.props.correctCount }
+          </li>
+          <li className="total-guesses">
+            <label>Total Guesses</label>
+            { this.props.correctCount + this.props.incorrectCount }
+          </li>
+          <li className="incorrect-guesses">
+            <label>Incorrect</label>
+            { this.props.incorrectCount }
+          </li>
+        </ul>
+        <ul className="puzzle-statistics">
+          <li>
+            <label>Left to Guess</label>
+            { this.props.leftToGuessCount }
+          </li>
+        </ul>
+      </div>
     )
   }
 }

@@ -27,8 +27,10 @@ export class Puzzle extends React.Component {
     return (
       <form onSubmit={handleSubmit(this.guessHappened)}>
         <img src={this.props.identity.imageURL} alt="Guess the identity"></img>
-        <GuessInput reactForm={guess}></GuessInput>
-        <input type="submit" value="Guess" />
+        <div className="guess-container">
+          <GuessInput reactForm={guess}></GuessInput>
+          <input type="submit" value="Guess" className="submit-guess" />
+        </div>
       </form>
     )
   }

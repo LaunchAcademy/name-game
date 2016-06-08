@@ -95,6 +95,7 @@ class GuessInput extends React.Component {
         onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
         getSuggestionValue={this.getSuggestionValue}
         renderSuggestion={this.renderSuggestion}
+        multisection={true}
         inputProps={inputProps}
         ref={(c) => this.container = c}
         {...this.props.guess} />
