@@ -109,6 +109,16 @@ describe('correct guess reducer', () => {
     }, action).identitiesToGuess)
       .to.eql([])
   })
+
+  it('adds the guess to the lastGuess', () => {
+    expect(mod.guessReducer(mod.INITIAL_STATE, action).lastGuess.name)
+      .to.eql(action.identity.name)
+  })
+
+  it('indicates that the last guess was incorrect', () => {
+    expect(mod.guessReducer(mod.INITIAL_STATE, action).lastGuess.correct)
+      .to.be.truthy
+  })
 })
 
 describe('incorrect guess reducer', () => {
@@ -130,5 +140,15 @@ describe('incorrect guess reducer', () => {
   it('does not affect the guessedIdentities', () => {
     expect(mod.guessReducer(mod.INITIAL_STATE, action).guessedIdentities)
       .to.eql([])
+  })
+
+  it('adds the guess to the lastGuess', () => {
+    expect(mod.guessReducer(mod.INITIAL_STATE, action).lastGuess.name)
+      .to.eql(action.guessedName)
+  })
+
+  it('indicates that the last guess was incorrect', () => {
+    expect(mod.guessReducer(mod.INITIAL_STATE, action).lastGuess.correct)
+      .to.be.falsy
   })
 })
