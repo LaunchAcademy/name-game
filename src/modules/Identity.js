@@ -1,23 +1,20 @@
 require('isomorphic-fetch')
-import _ from 'lodash'
+// unused
+// import _ from 'lodash'
 
-import { CORRECT_GUESS } from './Guess'
+// unused
+// import { CORRECT_GUESS } from './Guess'
 
-export const RECEIVE_IDENTITIES = 'RECEIVE_IDENTITIES'
-export const REQUEST_IDENTITIES = 'REQUEST_IDENTITIES'
+export const RECEIVE_IDENTITIES = 'nameGame/identities/RECEIVE_IDENTITIES'
+export const REQUEST_IDENTITIES = 'nameGame/identities/REQUEST_IDENTITIES'
 
-export function requestIdentities () {
-  return {
-    'type': REQUEST_IDENTITIES
-  }
-}
-
-export function receiveIdentities (identities) {
-  return {
-    'type': RECEIVE_IDENTITIES,
-    'payload': identities
-  }
-}
+// can clean up ACreators using ES6 => funcs. If you don't need to do
+// any logic within them it saves a little typing.
+export const requestIdentities = () => ({ type: REQUEST_IDENTITIES })
+export const receiveIdentities = (identities) => ({
+  type: RECEIVE_IDENTITIES,
+  payload: identities,
+})
 
 export function fetchIdentities () {
   const req = fetch('/PresidentList.json')
@@ -33,7 +30,7 @@ export function fetchIdentities () {
 };
 
 const initialState = []
-export default function manageIdentities (state = initialState, action) {
+export default function (state = initialState, action) {
   if (action.type === RECEIVE_IDENTITIES) {
     return action.payload
   }

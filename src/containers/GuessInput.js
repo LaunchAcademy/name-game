@@ -109,4 +109,6 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, null)(GuessInput)
+// can remove the null here if you don't need to pass in any bound
+// action creators
+export default connect(mapStateToProps)(GuessInput)

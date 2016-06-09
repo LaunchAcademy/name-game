@@ -39,6 +39,31 @@ export function incorrectGuess(guess) {
   }
 }
 
+// I like exporting a default 'actions' which you then pass to as your
+// mapDispatchToProps because then its easy to add more ACreators to your
+// containers.  In connect if you pass an object of funcs as the arg to
+// mapDispatchToProps it will auto bind them for you preventing you from needing
+// to use the bindActionCreators method.
+//
+// See here: https://github.com/reactjs/react-redux/blob/master/docs/api.md#inject-todos-and-all-action-creators
+//
+// Inside a container comp:
+// import { actions as guessActions } from 'modules/guesses'
+//
+//
+// connect(mapStateToProps, guessActions)(MyContainer);
+//
+// now all guessActions are available and bound to dispatch
+// when I add a new ACreator I only need to add it in ONE place: this exported
+// action object
+//
+export const actions = {
+  guessReceived,
+  receiveGuess,
+  correctGuess,
+  incorrectGuess,
+};
+
 export const INITIAL_STATE = {
   correctCount: 0,
   incorrectCount: 0,
@@ -47,7 +72,8 @@ export const INITIAL_STATE = {
   identitiesToGuess: []
 }
 
-export function guessReducer(state = INITIAL_STATE, action){
+// 'Duck's should always export a default of their reducer
+export default function (state = INITIAL_STATE, action){
   if(action.type === CORRECT_GUESS){
     return {
       ...state,
@@ -62,6 +88,7 @@ export function guessReducer(state = INITIAL_STATE, action){
       })
     }
   }
+  // nice, great job responding to side affects from the other ACreators in identities
   else if(action.type === RECEIVE_IDENTITIES){
     return {
       ...state,
