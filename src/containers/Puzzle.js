@@ -7,13 +7,20 @@ import { connect } from 'react-redux'
 
 import GuessInput from './GuessInput'
 
+// unless your comp needs local state I usually avoid using
+// the constructor in favor of arrow funcs.  My thought process
+// is if there is a constructor it should stand out and I want the
+// next person looking at it.  If there isn't then I just needed
+// to bind my funcs appropriately and the arrow syntax lets me do that.
 export class Puzzle extends React.Component {
-  constructor(props) {
-    super(props)
-    this.guessHappened = this.guessHappened.bind(this)
-  }
-
-  guessHappened({ guess }){
+  guessHappened = ({ guess }) => {
+    // I would store all this logic in the action creator
+    // that way it's easier to test (no react involved)
+    //
+    // also you want to be able to reuse this logic in another place -- the 
+    // Autosuggest component.  You should have an onEnter that does this logic.
+    // Right now there is a bug, if I hit enter on the autosuggest with the
+    // CORRECT answer it doesn't give me credit
     const clear = this.props.identity.name === guess
     const { resetForm } = this.props
     this.props.receiveGuess(this.props.identity, guess)
