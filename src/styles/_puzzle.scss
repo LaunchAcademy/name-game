@@ -1,6 +1,15 @@
+.guess-container {
+  width: 60%;
+  margin: auto;
+}
+.Select {
+  text-align: left;
+}
+
 input.submit-guess {
   @include button(false, $success-color);
   font-size: 1.5rem;
+  margin-top: 0.25rem;
 }
 
 .identity-image-container {
