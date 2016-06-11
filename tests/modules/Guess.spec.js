@@ -1,4 +1,4 @@
-import * as mod from '../../src/modules/Guess'
+import guessReducer, * as mod from '../../src/modules/Guess'
 import { RECEIVE_IDENTITIES } from '../../src/modules/Identity'
 
 import configureMockStore from 'redux-mock-store'
@@ -73,7 +73,7 @@ describe('receive identities reducer', () => {
   })
 
   it('populates identitiesToGuess', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).identitiesToGuess)
+    expect(guessReducer(mod.INITIAL_STATE, action).identitiesToGuess)
       .to.eql(identities)
   })
 })
@@ -93,17 +93,17 @@ describe('correct guess reducer', () => {
   })
 
   it('increments the correctCount', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).correctCount)
+    expect(guessReducer(mod.INITIAL_STATE, action).correctCount)
       .to.eq(mod.INITIAL_STATE.correctCount + 1)
   })
 
   it('appends the identity to the list of guessedIdentities', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).guessedIdentities)
+    expect(guessReducer(mod.INITIAL_STATE, action).guessedIdentities)
       .to.include(identity)
   })
 
   it('removes the identity from the identitiesToGuess', () => {
-    expect(mod.guessReducer({
+    expect(guessReducer({
       ...mod.INITIAL_STATE,
       identitiesToGuess: [identity]
     }, action).identitiesToGuess)
@@ -111,12 +111,12 @@ describe('correct guess reducer', () => {
   })
 
   it('adds the guess to the lastGuess', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).lastGuess.name)
+    expect(guessReducer(mod.INITIAL_STATE, action).lastGuess.name)
       .to.eql(action.identity.name)
   })
 
   it('indicates that the last guess was incorrect', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).lastGuess.correct)
+    expect(guessReducer(mod.INITIAL_STATE, action).lastGuess.correct)
       .to.be.truthy
   })
 })
@@ -133,22 +133,22 @@ describe('incorrect guess reducer', () => {
   })
 
   it('increments the incorrectCount', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).incorrectCount)
+    expect(guessReducer(mod.INITIAL_STATE, action).incorrectCount)
       .to.eq(mod.INITIAL_STATE.incorrectCount + 1)
   })
 
   it('does not affect the guessedIdentities', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).guessedIdentities)
+    expect(guessReducer(mod.INITIAL_STATE, action).guessedIdentities)
       .to.eql([])
   })
 
   it('adds the guess to the lastGuess', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).lastGuess.name)
+    expect(guessReducer(mod.INITIAL_STATE, action).lastGuess.name)
       .to.eql(action.guessedName)
   })
 
   it('indicates that the last guess was incorrect', () => {
-    expect(mod.guessReducer(mod.INITIAL_STATE, action).lastGuess.correct)
+    expect(guessReducer(mod.INITIAL_STATE, action).lastGuess.correct)
       .to.be.falsy
   })
 })

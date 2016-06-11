@@ -1,10 +1,8 @@
 require('isomorphic-fetch')
-import _ from 'lodash'
 
-import { CORRECT_GUESS } from './Guess'
-
-export const RECEIVE_IDENTITIES = 'RECEIVE_IDENTITIES'
-export const REQUEST_IDENTITIES = 'REQUEST_IDENTITIES'
+export const ACTION_PREFIX = 'nameGame/identities'
+export const RECEIVE_IDENTITIES = `${ACTION_PREFIX}/RECEIVE_IDENTITIES`
+export const REQUEST_IDENTITIES = `${ACTION_PREFIX}/REQUEST_IDENTITIES`
 
 export function requestIdentities () {
   return {

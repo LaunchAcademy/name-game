@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { routerReducer as router } from 'react-router-redux'
 import {reducer as formReducer} from 'redux-form';
 
-import { guessReducer } from '../modules/Guess'
+import guessReducer from '../modules/Guess'
 import manageIdentities from '../modules/Identity'
 
 export const makeRootReducer = (asyncReducers) => {

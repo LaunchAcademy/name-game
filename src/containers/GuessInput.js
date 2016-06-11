@@ -109,4 +109,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, null)(GuessInput)
+export default connect(mapStateToProps)(GuessInput)

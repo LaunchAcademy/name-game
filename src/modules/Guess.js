@@ -1,6 +1,8 @@
-export const RECEIVE_GUESS = 'RECEIVE_GUESS'
-export const CORRECT_GUESS = 'CORRECT_GUESS'
-export const INCORRECT_GUESS = 'INCORRECT_GUESS'
+export const ACTION_PREFIX = 'nameGame/identities'
+
+export const RECEIVE_GUESS = `${ACTION_PREFIX}/RECEIVE_GUESS`
+export const CORRECT_GUESS = `${ACTION_PREFIX}/CORRECT_GUESS`
+export const INCORRECT_GUESS = `${ACTION_PREFIX}/INCORRECT_GUESS`
 
 import _ from 'lodash'
 import { RECEIVE_IDENTITIES } from './Identity'
@@ -39,6 +41,13 @@ export function incorrectGuess(guess) {
   }
 }
 
+export const actions = {
+  guessReceived,
+  receiveGuess,
+  correctGuess,
+  incorrectGuess
+}
+
 export const INITIAL_STATE = {
   correctCount: 0,
   incorrectCount: 0,
@@ -47,7 +56,7 @@ export const INITIAL_STATE = {
   identitiesToGuess: []
 }
 
-export function guessReducer(state = INITIAL_STATE, action){
+export default function (state = INITIAL_STATE, action){
   if(action.type === CORRECT_GUESS){
     return {
       ...state,

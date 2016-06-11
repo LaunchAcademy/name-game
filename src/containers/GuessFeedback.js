@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
 
 export default class GuessFeedback extends React.Component {
+
   lastGuessClass () {
-    if(this.props.lastGuess.correct){
-      return 'success'
-    }
-    else {
-      return 'warning'
-    }
+   const { correct } = this.props.guess
+   return correct ? 'correct' : 'incorrect'
   }
 
   lastGuessMessage () {
-    if(this.props.guess.correct){
+    const { guess: { correct, name } } = this.props
+    if(correct){
       return (
         <span>
           <strong>Yes! </strong>
-          The last photo was <em>{this.props.guess.name}</em>
+          The last photo was <em>{name}</em>
         </span>
       )
     }
@@ -23,22 +21,15 @@ export default class GuessFeedback extends React.Component {
       return (
         <span>
           <strong>Nope! </strong>
-          This isn't <em>{this.props.guess.name}</em>
+          This isn't <em>{name}</em>
         </span>
       )
     }
   }
 
-  lastGuessClass() {
-    if(this.props.guess.correct){
-      return 'correct'
-    }
-    else {
-      return 'incorrect'
-    }
-  }
   render () {
-    if(this.props.guess){
+    const { guess } = this.props
+    if(guess){
       return (
         <p className={this.lastGuessClass()} >{ this.lastGuessMessage() }</p>
       )
