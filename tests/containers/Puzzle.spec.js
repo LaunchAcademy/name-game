@@ -31,8 +31,8 @@ describe('puzzle', () => {
     expect(wrapper.find('img')).to.be.present()
   })
 
-  it('has a text input', () => {
-    expect(wrapper.find("input[type='text']")).
+  it('has a select input', () => {
+    expect(wrapper.find("input")).
       to.be.present()
   })
 
