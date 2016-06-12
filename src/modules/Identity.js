@@ -5,7 +5,6 @@ export const RECEIVE_IDENTITIES = `${ACTION_PREFIX}/RECEIVE_IDENTITIES`
 export const REQUEST_IDENTITIES = `${ACTION_PREFIX}/REQUEST_IDENTITIES`
 
 import { config } from './config'
-
 export function requestIdentities () {
   return {
     'type': REQUEST_IDENTITIES
