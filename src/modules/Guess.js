@@ -3,6 +3,7 @@ export const ACTION_PREFIX = 'nameGame/identities'
 export const RECEIVE_GUESS = `${ACTION_PREFIX}/RECEIVE_GUESS`
 export const CORRECT_GUESS = `${ACTION_PREFIX}/CORRECT_GUESS`
 export const INCORRECT_GUESS = `${ACTION_PREFIX}/INCORRECT_GUESS`
+export const PRELOAD_NEXT_GUESS = `${ACTION_PREFIX}/PRELOAD_NEXT_GUESS`
 
 import _ from 'lodash'
 import { RECEIVE_IDENTITIES } from './Identity'
@@ -27,11 +28,20 @@ export function receiveGuess(identity, name) {
   }
 }
 
-export function correctGuess(identity) {
+export function preloadNextGuessImage(){
   return {
-    'type': CORRECT_GUESS,
-    'identity': identity
+    'type': PRELOAD_NEXT_GUESS
   }
+}
+export function correctGuess(identity) {
+  return (dispatch) => {
+    dispatch(preloadNextGuessImage())
+    return dispatch({
+      'type': CORRECT_GUESS,
+      'identity': identity
+    })
+  }
+
 }
 
 export function incorrectGuess(guess) {
@@ -86,6 +96,13 @@ export default function (state = INITIAL_STATE, action){
         name: action.guessedName
       }
     }
+  }
+  else if(action.type === PRELOAD_NEXT_GUESS){
+    if(state.identitiesToGuess.length > 1){
+      var img = new window.Image()
+      img.src = state.identitiesToGuess[1].imageURL
+    }
+    return state
   }
   else {
     return state

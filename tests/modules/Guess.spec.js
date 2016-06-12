@@ -45,9 +45,13 @@ describe('receiveGuess', () => {
     expect(store.getActions()[0].type).to.eq(mod.RECEIVE_GUESS)
   })
 
+  it('triggers a PRELOAD_NEXT_GUESS when the guess is correct', () => {
+    store.dispatch(mod.receiveGuess({'name': name}, name))
+    expect(store.getActions()[1].type).to.eq(mod.PRELOAD_NEXT_GUESS)
+  })
   it('triggers a CORRECT_GUESS when the guess is correct', () => {
     store.dispatch(mod.receiveGuess({'name': name}, name))
-    expect(store.getActions()[1].type).to.eq(mod.CORRECT_GUESS)
+    expect(store.getActions()[2].type).to.eq(mod.CORRECT_GUESS)
   })
 
 
@@ -150,5 +154,39 @@ describe('incorrect guess reducer', () => {
   it('indicates that the last guess was incorrect', () => {
     expect(guessReducer(mod.INITIAL_STATE, action).lastGuess.correct)
       .to.be.falsy
+  })
+})
+
+describe('preload next image reducer', () => {
+  let oldImage
+  let state = {}
+  beforeEach(() => {
+    oldImage = window.Image
+    window.Image = sinon.spy()
+  })
+
+  afterEach(() => {
+    state.identitiesToGuess = [
+      {
+        'imageURL': '/foo.jpg'
+      },
+      {
+        'imageURL': '/bar.jpg'
+      }
+    ]
+    window.Image = oldImage
+  })
+
+  it('preloads an the next to image to guess', () => {
+    state.identitiesToGuess = [
+      {
+        'imageURL': '/foo.jpg'
+      }
+    ]
+    guessReducer(state, { 'type': mod.PRELOAD_NEXT_GUESS })
+    expect(window.Image).to.not.have.been.called
+  })
+
+  it('does not attempt to preload an image if on last guess', () => {
   })
 })

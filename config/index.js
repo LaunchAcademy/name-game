@@ -11,7 +11,7 @@ debug('Creating default configuration.')
 // ========================================================
 // Default Configuration
 // ========================================================
-const config = {
+export const config = {
   env : process.env.NODE_ENV || 'development',
 
   // ----------------------------------
