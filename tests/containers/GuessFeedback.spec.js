@@ -30,7 +30,6 @@ describe('Guess Feedback', () => {
     })
   })
 
-
   describe('incorrect guesses', () => {
     beforeEach(() => {
       guess = {
@@ -52,10 +51,5 @@ describe('Guess Feedback', () => {
     it('sets the "correct" class name', () => {
       expect(component.find("p.incorrect")).to.be.present()
     })
-  })
-
-
-
-  it('indicates when an guess is incorrect', () => {
   })
 })
