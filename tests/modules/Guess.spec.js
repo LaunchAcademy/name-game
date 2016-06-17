@@ -61,6 +61,12 @@ describe('receiveGuess', () => {
   })
 })
 
+describe('skip guess action creator', () => {
+  it('sends a type of SKIP_GUESS', () => {
+    expect(mod.skipGuess().type).to.eq(mod.SKIP_GUESS)
+  })
+})
+
 describe('receive identities reducer', () => {
   let action
   let identities
@@ -194,5 +200,23 @@ describe('preload next image reducer', () => {
   it('does not attempt to preload an image if on 2nd to last guess', () => {
     state.identitiesToGuess = [state.identitiesToGuess[0], state.identitiesToGuess[1]]
     expect(window.Image).to.not.have.been.called
+  })
+})
+
+describe('skip guess reducer', () => {
+  let state = {}
+
+  beforeEach(() => {
+    state.identitiesToGuess = [
+      { 'name': 'foo' }
+    ]
+  })
+  it('removes the first item in the list', () => {
+    expect(guessReducer(state, { type: mod.SKIP_GUESS }).identitiesToGuess).to.be.empty
+  })
+
+  it('populates the skippedIdentity', () => {
+    expect(guessReducer(state, { type: mod.SKIP_GUESS }).skippedIdentity)
+      .to.eq(state.identitiesToGuess[0])
   })
 })
