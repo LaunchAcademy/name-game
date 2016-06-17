@@ -100,7 +100,7 @@ export default function (state = INITIAL_STATE, action){
   else if(action.type === PRELOAD_NEXT_GUESS){
     if(state.identitiesToGuess.length > 1){
       var img = new window.Image()
-      img.src = state.identitiesToGuess[1].imageURL
+      img.src = state.identitiesToGuess[2].imageURL
     }
     return state
   }

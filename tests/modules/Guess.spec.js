@@ -163,30 +163,36 @@ describe('preload next image reducer', () => {
   beforeEach(() => {
     oldImage = window.Image
     window.Image = sinon.spy()
-  })
 
-  afterEach(() => {
     state.identitiesToGuess = [
       {
         'imageURL': '/foo.jpg'
       },
       {
         'imageURL': '/bar.jpg'
+      },
+      {
+        'imageURL': '/baz.jpg'
       }
     ]
+  })
+
+  afterEach(() => {
     window.Image = oldImage
   })
 
   it('preloads an the next to image to guess', () => {
-    state.identitiesToGuess = [
-      {
-        'imageURL': '/foo.jpg'
-      }
-    ]
     guessReducer(state, { 'type': mod.PRELOAD_NEXT_GUESS })
-    expect(window.Image).to.not.have.been.called
+    expect(window.Image).to.have.been.called
   })
 
   it('does not attempt to preload an image if on last guess', () => {
+    state.identitiesToGuess = [state.identitiesToGuess[0]]
+    expect(window.Image).to.not.have.been.called
+  })
+
+  it('does not attempt to preload an image if on 2nd to last guess', () => {
+    state.identitiesToGuess = [state.identitiesToGuess[0], state.identitiesToGuess[1]]
+    expect(window.Image).to.not.have.been.called
   })
 })
