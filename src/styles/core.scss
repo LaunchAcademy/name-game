@@ -3,8 +3,12 @@
 
   @import "~normalize.css/normalize";
   @import "~foundation-sites/scss/foundation";
+  @import "~foundation-sites/scss/components/callout";
+  @import "~foundation-sites/scss/components/close-button";
   @include foundation-grid;
   @include foundation-button;
+  @include foundation-callout;
+  @include foundation-close-button;
 
   @import "puzzleStatistics";
   @import "guessInput";

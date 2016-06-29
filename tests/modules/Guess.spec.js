@@ -210,6 +210,8 @@ describe('skip guess reducer', () => {
     state.identitiesToGuess = [
       { 'name': 'foo' }
     ]
+
+    state.lastGuess = { 'name': 'bar' }
   })
   it('removes the first item in the list', () => {
     expect(guessReducer(state, { type: mod.SKIP_GUESS }).identitiesToGuess).to.be.empty
@@ -218,5 +220,9 @@ describe('skip guess reducer', () => {
   it('populates the skippedIdentity', () => {
     expect(guessReducer(state, { type: mod.SKIP_GUESS }).skippedIdentity)
       .to.eq(state.identitiesToGuess[0])
+  })
+
+  it('clears out lastGuess', () => {
+    expect(guessReducer(state, { type: mod.SKIP_GUESS }).lastGuess).to.eq(null)
   })
 })

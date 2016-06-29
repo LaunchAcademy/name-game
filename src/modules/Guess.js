@@ -102,6 +102,7 @@ export default function (state = INITIAL_STATE, action){
     return {
       ...state,
       incorrectCount: state.incorrectCount + 1,
+      skippedIdentity: null,
       lastGuess: {
         correct: false,
         name: action.guessedName
@@ -118,6 +119,7 @@ export default function (state = INITIAL_STATE, action){
   else if(action.type === SKIP_GUESS){
     return {
       ...state,
+      lastGuess: null,
       skippedIdentity: state.identitiesToGuess[0],
       identitiesToGuess: state.identitiesToGuess.slice(1)
     }
