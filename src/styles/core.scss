@@ -9,6 +9,10 @@
   font-style: normal;
 }
 
+$fa-font-path: "../../node_modules/font-awesome/fonts/";
+@import "~font-awesome/scss/_variables";
+@import "~font-awesome/scss/_path";
+
 :global {
   @import 'base';
 
@@ -20,6 +24,7 @@
   @include foundation-button;
   @include foundation-callout;
   @include foundation-close-button;
+  @import "~font-awesome/scss/font-awesome";
 
   @import "application";
 
@@ -61,7 +66,36 @@
   }
 
   #puzzle-container {
-    margin-top: 0 !important;
+    margin: 0 !important;
+  }
+
+  footer {
+    text-align: left;
+    height: auto;
+    margin: 0;
+    padding-top: 0;
+    div.column {
+      padding: 20px;
+      font-family: $header-font;
+      vertical-align: middle;
+      @include breakpoint(small) {
+        text-align: center;
+        padding-bottom: 0;
+      }
+    }
+
+    div.column.logos {
+      text-align: right;
+      @include breakpoint(small) {
+        text-align: center;
+        padding-bottom: 15px;
+      }
+    }
+
+    img {
+      width: 50px;
+      margin-left: 5px;
+    }
   }
 
   div.title-bar {
