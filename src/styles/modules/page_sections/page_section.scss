@@ -33,7 +33,7 @@ You can include the mixin in your own styles if there isn't an existing helper c
   $body-color: $body-font-color,
   $line-color: $body-color
 ) {
-  @extend .clearfix;
+  @include clearfix;
 
   text-align: center;
   background-color: $background-color;

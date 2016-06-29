@@ -10,6 +10,8 @@
   @include foundation-callout;
   @include foundation-close-button;
 
+  @import "application";
+
   @import "puzzleStatistics";
   @import "guessInput";
   @import "puzzle";
