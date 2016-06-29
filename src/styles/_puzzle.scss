@@ -6,10 +6,19 @@
   text-align: left;
 }
 
+.puzzle {
+  button.skip-guess, input[type="submit"] {
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
+  }
+}
+
 input.submit-guess {
   @include button(false, $success-color);
-  font-size: 1.5rem;
-  margin-top: 0.25rem;
+}
+
+button.skip-guess {
+  @include button(false, $warning-color);
 }
 
 .identity-image-container {
@@ -17,4 +26,8 @@ input.submit-guess {
   img {
     max-width: 400px;
   }
+}
+
+img.skipped-image {
+  max-height: 90px;
 }

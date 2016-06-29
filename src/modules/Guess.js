@@ -4,6 +4,7 @@ export const RECEIVE_GUESS = `${ACTION_PREFIX}/RECEIVE_GUESS`
 export const CORRECT_GUESS = `${ACTION_PREFIX}/CORRECT_GUESS`
 export const INCORRECT_GUESS = `${ACTION_PREFIX}/INCORRECT_GUESS`
 export const PRELOAD_NEXT_GUESS = `${ACTION_PREFIX}/PRELOAD_NEXT_GUESS`
+export const SKIP_GUESS = `${ACTION_PREFIX}/SKIP_GUESS`
 
 import _ from 'lodash'
 import { RECEIVE_IDENTITIES } from './Identity'
@@ -33,6 +34,7 @@ export function preloadNextGuessImage(){
     'type': PRELOAD_NEXT_GUESS
   }
 }
+
 export function correctGuess(identity) {
   return (dispatch) => {
     dispatch(preloadNextGuessImage())
@@ -51,11 +53,18 @@ export function incorrectGuess(guess) {
   }
 }
 
+export function skipGuess() {
+  return {
+    'type': SKIP_GUESS
+  }
+}
+
 export const actions = {
   guessReceived,
   receiveGuess,
   correctGuess,
-  incorrectGuess
+  incorrectGuess,
+  skipGuess
 }
 
 export const INITIAL_STATE = {
@@ -63,7 +72,8 @@ export const INITIAL_STATE = {
   incorrectCount: 0,
   lastGuess: null,
   guessedIdentities: [],
-  identitiesToGuess: []
+  identitiesToGuess: [],
+  skippedIdentity: null
 }
 
 export default function (state = INITIAL_STATE, action){
@@ -72,6 +82,7 @@ export default function (state = INITIAL_STATE, action){
       ...state,
       correctCount: state.correctCount + 1,
       guessedIdentities: [...state.guessedIdentities, action.identity],
+      skippedIdentity: null,
       lastGuess: {
         correct: true,
         name: action.identity.name
@@ -91,6 +102,7 @@ export default function (state = INITIAL_STATE, action){
     return {
       ...state,
       incorrectCount: state.incorrectCount + 1,
+      skippedIdentity: null,
       lastGuess: {
         correct: false,
         name: action.guessedName
@@ -98,11 +110,20 @@ export default function (state = INITIAL_STATE, action){
     }
   }
   else if(action.type === PRELOAD_NEXT_GUESS){
-    if(state.identitiesToGuess.length > 1){
+    const PRELOAD_INDEX = 2
+    if(state.identitiesToGuess.length > PRELOAD_INDEX){
       var img = new window.Image()
-      img.src = state.identitiesToGuess[2].imageURL
+      img.src = state.identitiesToGuess[PRELOAD_INDEX].imageURL
     }
     return state
+  }
+  else if(action.type === SKIP_GUESS){
+    return {
+      ...state,
+      lastGuess: null,
+      skippedIdentity: state.identitiesToGuess[0],
+      identitiesToGuess: state.identitiesToGuess.slice(1)
+    }
   }
   else {
     return state

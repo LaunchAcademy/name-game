@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import GuessInput from './GuessInput'
+import GiveUpButton from './GiveUpButton'
 
 export class Puzzle extends React.Component {
   constructor(props) {
@@ -25,13 +26,14 @@ export class Puzzle extends React.Component {
   render () {
     const { handleSubmit, fields: { guess }} = this.props
     return (
-      <form onSubmit={handleSubmit(this.guessHappened)}>
+      <form onSubmit={handleSubmit(this.guessHappened)} className="puzzle">
         <div className="identity-image-container">
           <img src={this.props.identity.imageURL} alt="Guess the identity"></img>
         </div>
         <div className="guess-container">
           <GuessInput {...guess}></GuessInput>
           <input type="submit" value="Guess" className="submit-guess" />
+          <GiveUpButton />
         </div>
       </form>
     )
