@@ -1,0 +1,67 @@
+// Markdown-rendered text
+// ----------------------
+// Not displayed in pattern guide
+
+#markdown-body {
+  p, blockquote, ul, ol, dl, table, pre {
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+
+  ul, ol {
+    padding-left: 2em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  h1 {
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid $la-border-color;
+  }
+
+  h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid $la-border-color;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+  }
+
+  h4 {
+    font-size: 1.25em;
+  }
+
+  h5 {
+    font-size: 1em;
+  }
+
+  h6 {
+    color: #777;
+    font-size: 1em;
+  }
+
+  blockquote {
+    color: #777;
+    padding: 0 15px;
+    border-left: 2px solid $la-border-color;
+  }
+
+  hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: $la-border-color;
+    border: 0 none;
+  }
+}

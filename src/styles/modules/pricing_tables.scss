@@ -1,0 +1,133 @@
+/*doc
+---
+title: Pricing Tables
+name: pricing_tables
+category: Misc
+---
+```html_example
+pricing tables
+<div class="row pricing-tables-list mvl" data-equalizer>
+  <div class="medium-4 large-3 columns large-offset-1-and-half" data-equalizer-watch>
+    <ul class="pricing-table">
+      <li class="title">BASIC</li>
+      <li class="price">19</li>
+      <li class="bullet-item">Learn by doing with our proven curriculum, videos, and challenges.</li>
+      <li class="bullet-item">Get help from our staff with priority Q&A</li>
+      <li class="cta-button">
+        <a class="button btn-green">Sign up today</a>
+      </li>
+    </ul>
+  </div>
+  <div class="medium-4 large-3 columns" data-equalizer-watch>
+    <ul class="pricing-table focus">
+      <li class="title">PRO</li>
+      <li class="price">49</li>
+      <li class="bullet-item">Learn by doing with our proven curriculum, videos, and challenges.</li>
+      <li class="bullet-item">Get help from our staff with priority Q&A</li>
+      <li class="bullet-item">Get Unstuck! Weekly staff-moderated Slack office hours</li>
+      <li class="cta-button">
+        <a class="button btn-green">Sign up today</a>
+      </li>
+    </ul>
+  </div>
+  <div class="medium-4 large-3 columns end" data-equalizer-watch>
+    <ul class="pricing-table">
+      <li class="title">ELITE</li>
+      <li class="price">499</li>
+      <li class="bullet-item">Learn by doing with our proven curriculum, videos, and challenges.</li>
+      <li class="bullet-item">Get help from our staff with priority Q&A</li>
+      <li class="bullet-item">Get 1-on-1 with weekly 50-minute sessions with our staff</li>
+      <li class="cta-button">
+        <a class="button btn-green">Sign up today</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+```
+
+*/
+
+.pricing-tables-list {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.pricing-table {
+  position: relative;
+  background-color: white;
+  height: 100%;
+  font-family: $header-font;
+
+  .title, .price {
+    border-bottom: 1px solid $la-light-grey;
+  }
+
+  .price::before {
+    content: "$";
+    vertical-align: text-top;
+    color: $la-med-dark-grey;
+    font-size: 25px;
+  }
+
+  .price::after {
+    content: "/mo";
+    color: $la-med-dark-grey;
+    font-size: $la-body-font-size;
+  }
+
+  .cta-button {
+    position: absolute;
+    bottom: 1px;
+    width: 75%;
+    left: 12.5%;
+  }
+
+  .bullet-item {
+    line-height: 1.6;
+  }
+
+  .bullet-item:nth-last-child(-n+2) {
+    margin-bottom: 120px;
+  }
+}
+
+.pricing-table.focus {
+  box-shadow: 0  0 10px rgba(0,0,0,.2);
+
+  .title {
+    background-color: $la-navy;
+    color: white;
+  }
+
+  .title::after {
+    content: "MOST POPULAR";
+    color: $la-blue;
+    display: block;
+    font-size: $la-font-extra-small;
+  }
+}
+
+// For medium screens and larger
+
+@media only screen and (min-width: 40.063em) {
+  .pricing-tables-list .columns {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .pricing-table.focus {
+    position: absolute;
+    top: -26px;
+    height: calc(100% + 52px);
+    z-index: 1;
+    left: -1px;
+    right: -1px;
+
+    .title {
+      padding: 25px;
+    }
+  }
+
+}

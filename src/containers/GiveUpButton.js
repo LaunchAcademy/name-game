@@ -17,7 +17,7 @@ export class GiveUpButton extends Component {
 
   render () {
     return (
-      <button onClick={ this.skipGuess } className="skip-guess">
+      <button onClick={ this.skipGuess } className="skip-guess btn-pink">
       Give Up
       </button>
     )

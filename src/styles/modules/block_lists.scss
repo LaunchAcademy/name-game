@@ -1,0 +1,36 @@
+/*doc
+---
+title: Block Lists
+name: block_lists
+category: Layout and Formatting
+---
+
+<p>Block lists resemble single-column tables.</p>
+
+```haml_example
+block lists
+%ul.block
+  %li Item 1
+  %li Item 2
+  %li Item 3
+```
+*/
+
+ul.block {
+  margin-left: 0;
+  border: 1px solid $la-border-color;
+
+  li {
+    display: block;
+    border-bottom: 1px solid $la-border-color;
+    padding: 0.5em;
+  }
+
+  li:last-child {
+    border-bottom: 0;
+  }
+
+  li:nth-child(even) {
+    background-color: $la-light-grey;
+  }
+}

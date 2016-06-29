@@ -1,0 +1,34 @@
+/*doc
+---
+title: Dark
+name: dark
+category: Page Sections
+---
+
+```haml_example
+dark page section
+.dark-page-section
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %hr
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+```haml_example
+dark page section with title lines
+.dark-page-section.title-lines
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+*/
+
+.dark-page-section {
+  @include page-section(
+    $background-color: $la-navy,
+    $header-color: $la-blue
+  );
+}

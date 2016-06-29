@@ -1,0 +1,99 @@
+/*doc
+---
+title: Pagination
+name: pagination
+category: Misc
+---
+
+<div class='pagination'>
+  <nav class="pagination">
+    <span class="first">
+      <a href="#">&laquo; First</a>
+    </span>
+
+    <span class="prev">
+      <a href="#" rel="prev">&lsaquo; Prev</a>
+    </span>
+
+    <span class="page gap">&hellip;</span>
+
+    <span class="page">
+      <a href="#">5</a>
+    </span>
+
+    <span class="page">
+      <a href="#">6</a>
+    </span>
+
+    <span class="page">
+      <a href="#">7</a>
+    </span>
+
+    <span class="page">
+      <a href="#" rel="prev">8</a>
+    </span>
+
+    <span class="page current">
+      9
+    </span>
+
+    <span class="page">
+      <a href="#" rel="next">10</a>
+    </span>
+
+    <span class="page">
+      <a href="#">11</a>
+    </span>
+
+    <span class="page">
+      <a href="#">12</a>
+    </span>
+
+    <span class="page">
+      <a href="#">13</a>
+    </span>
+
+    <span class="page gap">&hellip;</span>
+
+    <span class="next">
+      <a href="#" rel="next">Next &rsaquo;</a>
+    </span>
+
+    <span class="last">
+      <a href="#">Last &raquo;</a>
+    </span>
+
+  </nav>
+
+</div>
+
+*/
+
+
+
+.pagination {
+  text-align: center;
+  padding-bottom: .8em;
+}
+
+.pagination .page {
+  margin: 0 10px;
+}
+
+.pagination span.page {
+  font-size: 1.1rem;
+  font-family: "quatro-slab", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.pagination span {
+  &.next,
+  &.last,
+  &.first,
+  &.prev {
+    font-size: 1.1rem;
+    font-family: $header-font;
+    padding: 0 10px;
+  }
+}

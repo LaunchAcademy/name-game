@@ -1,0 +1,35 @@
+/*doc
+---
+title: Light
+name: light
+category: Page Sections
+---
+
+```haml_example
+light page section
+.light-page-section
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %hr
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+```haml_example
+light page section with title lines
+.light-page-section.title-lines
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+*/
+
+.light-page-section {
+  @include page-section(
+    $background-color: $la-light-grey,
+    $header-color: $la-blue,
+    $line-color: $la-grey
+  );
+}

@@ -1,0 +1,35 @@
+/*doc
+---
+title: Pink
+name: pink
+category: Page Sections
+---
+
+```haml_example
+pink page section
+.pink-page-section
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %hr
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+```haml_example
+pink page section with title lines
+.pink-page-section.title-lines
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+*/
+
+.pink-page-section {
+  @include page-section(
+    $background-color: $la-pink,
+    $header-color: $la-white,
+    $body-color: $la-white
+  );
+}

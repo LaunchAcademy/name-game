@@ -1,0 +1,20 @@
+/*doc
+---
+title: Extended Grid System
+name: extended_grid_system
+category: Layout and Formatting
+---
+
+<p>The Foundation grid system is pretty complete, but has a couple gaps. Here we keep additions we make to the Foundation grid system classes:</p>
+
+<p><code>.large-offset-1-and-half</code> can be used for offsetting columns by one-and-a-half columns width on a large screen. This is useful for centering three groups of three columns (like for pricing tables).</p>
+
+*/
+
+// Large Screens
+
+@media only screen and (min-width: 64.063em) {
+  .large-offset-1-and-half {
+    margin-left: 12.5% !important;
+  }
+}

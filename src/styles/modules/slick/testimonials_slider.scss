@@ -1,0 +1,174 @@
+/*doc
+---
+title: Testimonials Slider using Slick
+name: testimonials-slider
+category: Slick Carousel
+---
+
+We have a fancy testimonials slider you can add to your pages! For the most part, you can accomplish this look simply by wrapping your code in the class <code>.testimonials-slick</code> and formatting it as demonstrated below.
+
+```haml_example
+Testimonials Slick Slider
+.blue-page-section
+  .testimonials-slick.slick-fancy-dots
+    .testimonial
+      .body Wow launch is super super awesome!!!!
+
+      .author-details
+        .photo
+          %img(src="/dyson_sphere/dan.jpg")
+        .text-info
+          %p.name Dan Pickett
+          %p.company Launch Academy
+          %p.role Co-founder
+
+    .testimonial
+      .body Wow launch is super super awesome!!!!
+
+      .author-details
+        .photo
+          %img(src="/dyson_sphere/dan.jpg")
+        .text-info
+          %p.name Dan Pickett
+          %p.company Launch Academy
+          %p.role Co-founder
+```
+
+<h3>Updating the Arrow Color</h3>
+
+By default, the little arrow under the "body" part of the testimonial will be filled in with white. You can optionally change that - say, to match the background color like so:
+
+![](http://i.imgur.com/TZuXZwu.png)
+
+To do this, you must write your own custom styling for the testimonials section that includes the mixin <code>testimonial-colored-arrow</code> like so:
+
+<pre><span class="pl-e">.testimonial-slick.online-testimonials</span> {
+  <span class="pl-k">@include</span> <span class="pl-c1">testimonial-colored-arrow</span>(<span class="pl-smi">$la-blue</span>);
+}</pre>
+
+<h3>Mobile View</h3>
+
+As of right now, testimonials are set up to be vertically-centered in a box of an arbitrary height. If you don't want this to be the case at a certain screen size (say, if your testimonials take up the full width of the page on small screens) you'll need to write your own CSS that sets the height of the <code>.testimonial-section</code> to auto and gets gets rid of the
+
+
+*/
+
+@mixin testimonial-colored-arrow($fill-color) {
+  .testimonial .body:after {
+    border-color: $fill-color transparent;
+  }
+}
+
+.testimonials-slick {
+  height: 100%;
+
+  .slick-dots {
+    bottom: 0;
+  }
+
+  .slick-list {
+    @include transform(translateY(-50%) translate3d(0, 0, 0));
+    position: relative;
+    top: 50%;
+  }
+
+  .testimonial {
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    border: none;
+    padding: 0;
+    color: $la-white;
+
+
+    &:before, &:after {
+      content: "";
+    }
+
+    .author-details {
+      max-width: 300px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .photo  {
+      float: left;
+      img {
+        margin-right: 15px;
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        border: 2px solid $la-white;
+      }
+    }
+
+    .name {
+      color: $la-white;
+      font-size: 17px;
+      padding-top: 15px;
+    }
+
+    .company {
+      margin-bottom: 0;
+      line-height: auto;
+      font-weight: bold;
+    }
+
+    .role {
+      margin-bottom: 0;
+      line-height: auto;
+      font-size: 11px;
+    }
+  }
+
+  .testimonial .body {
+    position: relative;
+    border-bottom: 1px solid $la-white;
+    margin-bottom: 35px;
+    padding-bottom: 10px;
+    line-height: 30px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: calc(100% / 2 - 120px);
+      border-width: 15px 18px 0;
+      border-style: solid;
+      border-color: $la-white transparent;
+      display: block;
+      width: 0;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -13px;
+      left: calc(100% / 2 - 117px);
+      border-width: 13px 15px 0;
+      border-style: solid;
+      border-color: $la-white transparent;
+      display: block;
+      width: 0;
+    }
+  }
+
+  @media only screen and (min-width: 64.0625em) and (max-width: 70em) {
+    .testimonial .body {
+      font-size: 15px;
+      line-height: 21px;
+    }
+  }
+
+  @media only screen and (min-width: 82em) and (max-width: 90em) {
+    .testimonial .body {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .testimonial .photo img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

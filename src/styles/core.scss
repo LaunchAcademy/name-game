@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'quatro-slab';
+  src: url('../static/fonts/QuatroSlab_Regular.eot'); /* IE9 Compat Modes */
+  src: url('../static/fonts/QuatroSlab_Regular.eot') format('embedded-opentype'), /* IE6-IE8 */
+       url('../static/fonts/QuatroSlab_Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../static/fonts/QuatroSlab_Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../static/fonts/QuatroSlab_Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
 :global {
   @import 'base';
 
@@ -10,9 +21,13 @@
   @include foundation-callout;
   @include foundation-close-button;
 
+  @import "application";
+
   @import "puzzleStatistics";
   @import "guessInput";
+  @import "guessFeedback";
   @import "puzzle";
+  @import "giveUpFeedback";
 
   // Some best-practice CSS that's useful for most apps
   // Just remove them if they're not what you want
@@ -25,6 +40,14 @@
     margin: 0;
     padding: 0;
     height: 100%;
+    background-color: $la-light-blue;
+    font-family: $body-font;
+    color: $la-dark-grey;
+  }
+
+  .title-line {
+    @include title-line($la-blue);
+    font-family: $header-font;
   }
 
   *,
@@ -35,6 +58,21 @@
 
   div.puzzle-set {
     text-align: center;
+  }
+
+  #puzzle-container {
+    margin-top: 0 !important;
+  }
+
+  div.title-bar {
+    background-color: $la-blue;
+    padding: 0.4rem;
+    color: white;
+    font-weight: bold;
+    h1 {
+      font-family: $header-font;
+      font-size: 1.25rem;
+    }
   }
 
 }

@@ -1,0 +1,33 @@
+/*doc
+---
+title: Fonts
+name: fonts
+category: Typography
+---
+<div class="panel">
+  <h1 class="no-border">Primary Font: Quatro Slab</h1>
+  <p>Variable name: <code>$header-font</code></p>
+  <p>Used for headlines, sub headlines, short body copy, hyperlinks and CTA buttons</p>
+</div>
+<hr>
+<div class="panel">
+  <h3>Example $body-font - size $la-body-font-size (default size):</h3>
+  <p class="la-font-small">Cupcake ipsum dolor sit. Amet sweet roll lollipop candy wafer ice cream gingerbread biscuit. Gummies macaroon bonbon tart cotton candy dessert. Dessert sesame snaps toffee oat cake caramels cookie biscuit macaroon marshmallow. Marzipan croissant gingerbread sweet roll muffin danish. Powder tootsie roll toffee. Carrot cake dessert dragée wafer cake brownie. Icing pastry oat cake.</p>
+
+  <h3>Size $la-font-extra-small:</h3>
+  <p class="la-font-extra-small">Cupcake ipsum dolor sit. Amet sweet roll lollipop candy wafer ice cream gingerbread biscuit. Gummies macaroon bonbon tart cotton candy dessert. Dessert sesame snaps toffee oat cake caramels cookie biscuit macaroon marshmallow. Marzipan croissant gingerbread sweet roll muffin danish. Powder tootsie roll toffee. Carrot cake dessert dragée wafer cake brownie. Icing pastry oat cake.</p>
+</div>
+<hr>
+<div class="panel">
+  <h3>Example $code-font</h3>
+  <pre class="highlight plaintext"><code>Yay example code!!&#x000A;</code></pre>
+</div>
+*/
+
+$header-font: "quatro-slab", sans-serif;
+$body-font: 'Helvetica Neue', sans-serif;
+$code-font: Consolas, 'Liberation Mono', Courier, monospace;
+
+$la-body-font-size: 14px;
+$la-font-extra-small: 12px;
+$la-font-code-size: 13px;

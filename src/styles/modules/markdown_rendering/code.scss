@@ -1,0 +1,27 @@
+// Markdown-rendered basic code
+// ----------------------
+// Not displayed in pattern guide
+
+code {
+  border: 1px solid $la-border-color;
+  background-color: $la-light-grey;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+pre code {
+  padding: 0;
+  border: 0;
+}
+
+pre {
+  @extend code;
+  font-size: $la-font-code-size;
+  line-height: 1.45;
+  overflow: auto;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  border-radius: 3px;
+  word-wrap: break-word;
+  padding: 16px;
+}

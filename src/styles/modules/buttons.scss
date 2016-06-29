@@ -1,0 +1,110 @@
+/*doc
+---
+title: Buttons
+name: buttons
+category: Buttons
+---
+<p>Besides normal Foundation buttons, you can also specify green and pink buttons.</p>
+
+<h3>Primary Buttons:</h3>
+
+```haml_example
+primary buttons
+.button Normal button
+.btn-green Green button
+.btn-pink Pink button
+```
+
+<h3>Secondary Buttons:</h3>
+
+```haml_example
+secondary buttons
+.btn-border Button with border
+.btn-hollow-green Green hollow button
+.btn-hollow-white-green White/green hollow button
+```
+
+<h3>Call to Actions:</h3>
+<p>You can add an arrow to your button by adding the class .cta</p>
+
+```haml_example
+call to actions
+.btn-green.cta Call to action
+```
+
+<h3>Form Submit Buttons</h3>
+<p>For CTAs on form submit buttons, use &lt;button&gt;&lt;/button&gt; elements rather than default &lt;input type="submit"&gt;</p>
+<h5>Using Rails form_for</h5>
+<pre>= f.button "button text", id: "some_id", class: "button cta"</pre>
+<h5>Using Simple_Form</h5>
+<pre>= f.button :button, "button text", id: "if you want an id", class: "button cta"</pre>
+
+*/
+
+.btn-green {
+  @extend .button;
+  background-color: $la-light-green !important;
+
+  &:hover, &:focus {
+    background-color: #a1e33e !important;
+  }
+}
+
+.btn-pink {
+  @extend .button;
+  background-color: $la-pink !important;
+
+  &:hover, &:focus {
+    background-color: #eb66a3 !important;
+  }
+}
+
+.btn-border {
+  @extend .button;
+  padding: 1.5rem 2.5rem;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid white;
+    z-index: 1;
+  }
+}
+
+.btn-hollow-green {
+  @extend .button;
+  background-color: transparent !important;
+  border: 3px solid $la-light-green;
+
+  &:hover, &:focus {
+    background-color: #a1e33e !important;
+  }
+}
+
+.btn-hollow-white-green {
+  @extend .btn-hollow-green;
+  border-color: $la-white;
+}
+
+.cta input,
+.cta input:hover,
+.cta input:focus {
+  @extend .button;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cta:after {
+  font-family: FontAwesome;
+  content: "\f0da";
+  display: inline-block;
+  position: relative;
+  left: 4px;
+  top: 1px;
+}

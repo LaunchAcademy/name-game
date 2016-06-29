@@ -1,0 +1,47 @@
+/*doc
+---
+title: Slick Carousel Fancy Dots
+name: slick-fancy-dots
+category: Slick Carousel
+---
+
+For a lot of designs, you may end up wanting fancy dots as your slider dots, like these shown here:
+
+![](http://i.imgur.com/MhEHt6o.png)
+
+To make this happen, simply add the class of <code>.fancy-slick-dots</code> to your slick slider.
+
+*/
+
+.slick-fancy-dots {
+  .slick-dots {
+    @include transform(translateX(-50%));
+    width: auto;
+    left: 50%;
+  }
+
+  .slick-dots button:hover,
+  .slick-dots .button:hover {
+    background: transparent;
+  }
+
+  .slick-dots li button {
+    &:before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 15px;
+      border: 2px solid white;
+      opacity: 1;
+      transition: background .1s;
+    }
+
+    &:hover:before {
+      background: rgba(255,255,255,.2);
+    }
+  }
+
+  .slick-dots li.slick-active button:before {
+    background: white;
+  }
+}

@@ -1,0 +1,81 @@
+/*doc
+---
+title: Fixed Headers
+name: fixedHeaders
+category: Headers and Footers
+---
+
+```haml_example
+header
+.sticky
+  %nav.top-bar(data-topbar role="navigation" data-options="sticky_on: [small, medium, large]")
+    %ul.plm.title-area
+      %li.name
+        %img.logo(src="dyson_sphere/launch-logo.png")
+        %h1
+          %a
+            Launch
+            %strong Academy
+      %li.toggle-topbar.menu-icon
+        %a(href="#")
+          %span
+
+    %section.top-bar-section
+      %ul.left
+        %li
+          %a.menu-item Admin
+        %li.menu-item
+          %a.menu-item Sign Out
+
+      %ul.right
+        %li
+          %a Learn on Campus
+        %li
+          %a Learn Online
+        %li
+          %a.btn-pink.cta Apply
+
+```
+
+<p>By default, fixed headers will be `$la-blue` no matter where you are on the page.</p>
+
+<p>To make your header transparent when at the top of the page, on a particular page,
+add the class `.has-transparent-header` to some later element on the page. (I recommend
+the first element of the page, such as the hero image or video.)</p>
+
+*/
+
+// On medium screens and up, use transparent background
+@media only screen and (min-width:#{lower-bound($topbar-breakpoint)}) {
+  .sticky {
+    .top-bar {
+      transition: background .2s;
+    }
+
+    &.has-background {
+      .top-bar-section ul li,
+      .top-bar-section li:not(.has-form) a:not(.button):not(.btn-green):not(.btn-pink):not(.btn-border) {
+        transition-delay: .2s;
+      }
+    }
+
+    &:not(.has-background) {
+      position: absolute;
+      width: 100%;
+
+      .top-bar,
+      .top-bar-section ul li,
+      .top-bar-section li:not(.has-form) a:not(.button):not(.btn-green):not(.btn-pink):not(.btn-border) {
+        background: transparent !important;
+      }
+    }
+
+    .top-bar-section .right li:last-child {
+      padding-right: 16px;
+    }
+  }
+
+  .f-topbar-fixed {
+    padding-top: 0 !important;
+  }
+}

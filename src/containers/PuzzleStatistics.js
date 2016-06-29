@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 export class PuzzleStatistics extends Component {
   render () {
     return (
-      <div>
+      <div className="dark-page-section puzzle-statistics-container">
         <ul className="puzzle-statistics">
           <li className="correct-guesses">
             <label>Correct</label>

@@ -1,0 +1,75 @@
+/*doc
+---
+title: Header w/ Search Bar
+name: header_with_search_bar
+category: Headers and Footers
+---
+
+```haml_example
+header w/ search bar
+.contain-to-grid.full-top-bar
+  %nav.top-bar( data-topbar role="navigation")
+    %ul.title-area
+      %li.name
+        %img.logo(src="dyson_sphere/launch-logo.png")
+        %h1
+          %a
+            Launch
+            %strong Academy
+      %li.toggle-topbar.menu-icon
+        %a(href="#")
+          %span
+
+    %section.top-bar-section
+      %ul.left
+        %li.has-form
+          .row.collapse.search
+            %form
+              %input.left(id="query" name="query" placeholder="Search" type="text")
+              %button.search-button(name="button" type="submit")
+                %i.fa.fa-search
+```
+
+*/
+
+.top-bar-section .has-form {
+  padding-top: 20px;
+}
+
+.search {
+  position: relative;
+
+  input,
+  input:focus,
+  button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid white;
+    padding-left: 0;
+    top: 10px;
+    color: white;
+    font-family: $header-font;
+  }
+
+  button {
+    position: absolute;
+    padding: 2px 0;
+  }
+
+  ::-webkit-input-placeholder {
+     color: white;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: white;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: white;
+  }
+
+  :-ms-input-placeholder {
+     color: white;
+  }
+}

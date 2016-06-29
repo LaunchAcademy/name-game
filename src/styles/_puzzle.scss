@@ -13,14 +13,6 @@
   }
 }
 
-input.submit-guess {
-  @include button(false, $success-color);
-}
-
-button.skip-guess {
-  @include button(false, $warning-color);
-}
-
 .identity-image-container {
   min-height: 130px;
   img {

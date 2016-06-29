@@ -1,0 +1,156 @@
+@import "dyson_sphere/constants/colors";
+@import "dyson_sphere/constants/fonts";
+@import "dyson_sphere/modules/forms/fancy_checkboxes";
+
+// ======================
+// COLORS
+// ======================
+
+.circle {
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  padding-top: 80px;
+  border-radius: 200px;
+  display: inline-block;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+.la-white { background-color: $la-white; }
+.la-light-grey { background-color: $la-light-grey; }
+.la-grey { background-color: $la-grey; }
+.la-med-dark-grey { background-color: $la-med-dark-grey; color: white; }
+.la-dark-grey { background-color: $la-dark-grey; color: white; }
+.la-navy { background-color: $la-navy; color: white; }
+
+.la-blue { background-color: $la-blue; color: white; }
+.la-light-blue { background-color: $la-light-blue; }
+.la-pink { background-color: $la-pink; color: white; }
+.la-light-pink { background-color: $la-light-pink; color: white; }
+.la-light-green { background-color: $la-light-green; color: white; }
+.la-green { background-color: $la-green; color: white; }
+.la-red { background-color: $la-red; color: white; }
+.la-dark-yellow { background-color: #FFD800; }
+
+.la-border-color { background-color: $la-border-color; }
+
+// ======================
+// FONTS
+// ======================
+
+.font-example {
+  padding: 30px;
+}
+
+.la-font-small { font-size: $la-body-font-size }
+.la-font-extra-small { font-size: $la-font-extra-small }
+
+// ======================
+// FANCY CHECKBOX EXAMPLE
+// ======================
+
+.fancy-discount-checkbox {
+  text-align: center;
+
+  label {
+    font-size: 32px;
+  }
+
+  @include fancy-checkbox(
+    $checkbox-size: 40px,
+    $check-color: white,
+    $box-bg-color: transparentize(white, .3),
+    $hover-check-color: $la-blue,
+    $checked-box-border-color: transparent,
+    $checked-label-color: white
+  )
+}
+
+// ======================
+// STYLEGUIDE LAYOUT
+// ======================
+
+body {
+  background-color: $la-light-grey;
+}
+
+.sub-nav {
+  background-color: $la-navy;
+  padding-left: 0;
+
+  dd {
+    padding: 15px 0;
+    margin: 0;
+
+    &.active {
+      background-color: lighten($la-navy, 10%);
+    }
+  }
+  dd a {
+    padding-left: 0 .5em;
+    color: $la-blue;
+
+    &:hover {
+      color: $la-white;
+    }
+  }
+
+  dd.active a,
+  dd.active a:hover {
+    background: none;
+    font-weight: bold;
+    color: $la-light-blue;
+    padding: 0 10px;
+  }
+}
+
+.side-nav {
+  border: 1px solid $la-border-color;
+  margin-top: 10px;
+}
+
+.content {
+  h1.styleguide {
+    border-top: 4px double #999;
+    border-bottom: 1px solid #ddd;
+    padding-top: 35px;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    color: $la-blue;
+  }
+
+  h1.no-border {
+    border-top: 0px;
+    border-bottom: 0px;
+    padding-top: 0;
+  }
+}
+
+.codeExample {
+  margin-bottom: 50px;
+
+  .accordion {
+    margin-top: 25px;
+  }
+
+  .accordion-navigation > a,
+  .accordion-navigation.active > a {
+    padding: .5em 1em;
+    background: $la-pink;
+    color: $la-white;
+
+    &:hover,
+    &:focus {
+      background: darken($la-pink, 5%);
+      color: $la-white;
+      text-decoration: none;
+    }
+  }
+}
+
+.exampleOutput {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background: white;
+}

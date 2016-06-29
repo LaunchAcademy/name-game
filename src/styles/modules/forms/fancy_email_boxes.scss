@@ -1,0 +1,105 @@
+/*doc
+---
+title: Fancy Email Boxes
+name: fancy-email-boxes
+category: Fancy Form Fields
+---
+<p><code>fancy-email-box</code> refers to an email box that looks like the example below:</p>
+```haml_example
+fancy-email-box
+.fancy-email-box.large-8.columns
+  %form
+    %fieldset
+      .row.collapse
+        .medium-7.columns.text-center
+          %input{ placeholder: 'enter your email address...', type: 'text' }
+        .button-container.medium-5.columns
+          %button.btn-green.cta{ type: 'submit' } Send me one
+```
+
+<h2>Customization</h2>
+
+By default, something with the class of <code>.fancy-email-box</code> will have the same border color, background color, placeholder color, and text color as the example shown above. (The button color can be customized based on the class you put on the button - it's shown as <code>btn-green</code>, but could alternatively have any other button class.)
+
+You can customize the border color, background color, placeholder color, and text color of this form field by using the <code>fancy-email-box</code> mixin instead of the built-in <code>fancy-email-box</code> class. To do so, replace the <code>fancy-email-box</code> class name from the HTML shown above with a custom class name of your own. Then, write your own scss for that new class that says <code>@include fancy-email-box</code>, with the relevant arguments passed to the mixin.
+
+<h3>Mixin Arguments</h3>
+
+The <code>fancy-email-box</code> takes four optional arguments:
+
+<ul>
+  <li><code>$border-color</code></li>
+  <li><code>$background-color</code></li>
+  <li><code>$text-color</code></li>
+  <li><code>$placeholder-color</code></li>
+</ul>
+
+Each of these values has a default value (as shown in the aboce example of the rendered form), but those default values can be overwritten by passing in new arguments. New arguments are passed in a way that resembles key-value pairs:
+
+<pre>.my-custom-class {
+  @include fancy-email-box(
+    $border-color: red,
+    $background-color: pink,
+    $text-color: white,
+    $placeholder-color: white
+  );
+}</pre>
+
+Any number of these optional arguments can be included - you can overwrite all of them, just a couple of them, or none at all! If you don't plan on overwriting one of the default values, just leave it out of the arguments list.
+
+*/
+
+@mixin fancy-email-box(
+  $border-color: #555,
+  $background-color: #272C2E,
+  $text-color: $la-light-grey,
+  $placeholder-color: $la-dark-grey
+) {
+  fieldset {
+    padding: 10px;
+    border: 1px solid $border-color;
+    background-color: $background-color;
+  }
+
+  input[type="text"] {
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-family: $header-font;
+    font-size: 18px;
+    color: $text-color;
+    height: 50px;
+  }
+
+  ::-webkit-input-placeholder {
+     color: $placeholder-color;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+     color: $placeholder-color;
+  }
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: $placeholder-color;
+  }
+  :-ms-input-placeholder {
+     color: $placeholder-color;
+  }
+
+  input,
+  button {
+    margin: 0;
+  }
+
+  .button-container {
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 40.063em) {
+    .button-container {
+      text-align: right;
+    }
+  }
+}
+
+.fancy-email-box {
+  @include fancy-email-box;
+}

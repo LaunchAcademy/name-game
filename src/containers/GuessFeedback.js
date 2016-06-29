@@ -31,11 +31,11 @@ export default class GuessFeedback extends React.Component {
     const { guess } = this.props
     if(guess){
       return (
-        <p className={this.lastGuessClass()} >{ this.lastGuessMessage() }</p>
+        <p id="guessFeedback" className={this.lastGuessClass()} >{ this.lastGuessMessage() }</p>
       )
     }
     else {
-      return (<p/>)
+      return null//(<p id="guessFeedback"/>)
     }
   }
 }
