@@ -1,0 +1,62 @@
+/*doc
+---
+title: Customization
+name: z-customization
+category: Page Sections
+---
+
+In addition to the helper classes listed below, there is a mixin called <code>page-section</code> that you can use to customize the colors of your own page sections.
+
+The mixin takes the following arguments:
+
+<ul>
+  <li><code>$background-color</code></li>
+  <li><code>$header-color</code></li>
+  <li><code>$body-color</code> - set to a default of <code>$body-font-color</code>, the value for all body text set in foundation_and_overrides</li>
+  <li><code>$line-color</code> - describes the colors of the hr underline or title lines. Set to a default of whatever the <code>$body-color</code> variable is set to.</li>
+</ul>
+
+You can include the mixin in your own styles if there isn't an existing helper class that suits your needs! Example:
+
+<pre>.my-custom-class {
+  @include page-section(
+    $background-color: $la-navy,
+    $header-color: $la-white,
+    $body-color: $la-white
+  );
+}</pre>
+*/
+
+@mixin page-section(
+  $background-color,
+  $header-color,
+  $body-color: $body-font-color,
+  $line-color: $body-color
+) {
+  @extend .clearfix;
+
+  text-align: center;
+  background-color: $background-color;
+  padding: 4em 0;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $header-color;
+  }
+
+  p {
+    color: $body-color;
+    font-family: "quatro-slab", sans-serif;
+    font-size: 1.125em;
+  }
+
+  hr {
+    border-color: $line-color;
+    margin-top: 5px;
+  }
+
+  &.title-lines {
+    h1, h2 {
+      @include title-line($line-color);
+    }
+  }
+}

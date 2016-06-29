@@ -1,0 +1,20 @@
+/*doc
+---
+title: Misc Helper Classes
+name: misc_helper_classes
+category: Layout and Formatting
+---
+
+<p>Adding the class <code>full-width</code> to something will make it <code>width: 100%;</code><p>
+
+<p>Adding the class <code>inline</code> to something will make it <code>display: inline;</code><p>
+
+*/
+
+.full-width {
+  width: 100%;
+}
+
+.inline {
+  display: inline;
+}

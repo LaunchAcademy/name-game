@@ -1,0 +1,30 @@
+/*doc
+---
+title: Title Lines
+name: title-line
+category: Typography
+---
+
+<p>If you want a particular header to have nice lines on either side of it, include the mixin <code>title-line(color)</code> to the styles you're defining for that header. Example:</p>
+
+<code>@include title-line($la-grey);</code>
+
+*/
+
+@mixin title-line($color) {
+  @media only screen and (min-width: 55em) {
+    display: table;
+    white-space: nowrap;
+
+    &:before, &:after {
+      border-top: 1px solid $color;
+      content: '';
+      display: table-cell;
+      position: relative;
+      transform: translateY(50%);
+      width: 45%;
+    }
+    &:before { right: 1.5%; }
+    &:after { left: 1.5%; }
+  }
+}

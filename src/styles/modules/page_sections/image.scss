@@ -1,0 +1,67 @@
+/*doc
+---
+title: Image
+name: image
+category: Page Sections
+---
+
+For a simple image page section, use the class name shown here. This will display the default image shown here.
+
+```haml_example
+image page section
+.image-page-section
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %hr
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+<h4>Image Customization</h4>
+
+To customize the image and the overlay, you can include the mixin called <code>image-page-section</code> in your own custom class.
+
+This mixin takes two arguments:
+
+The mixin takes the following arguments:
+
+<ul>
+  <li><code>$filename</code> - the name of the file you want to use as a background image. (This name will the be automatically wrapped in <code>image_url</code>.)</li>
+  <li><code>$overlay</code> - the color you would like to overlay the image with. This is set to <code>transparent</code> by default.</li>
+</ul>
+
+Example:
+
+<pre>.my-custom-class {
+  @include image-page-section("launchers.jpg", rgba(0,0,0,.5));
+}</pre>
+
+*/
+
+@mixin image-page-section($filename, $overlay: transparent) {
+  @include page-section(
+    $background-color: $la-navy,
+    $header-color: $la-white,
+    $body-color: $la-white
+  );
+
+  background-image: image_url($filename);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: $overlay;
+  }
+}
+
+.image-page-section {
+  @include image-page-section("dyson_sphere/hero_1.jpg", rgba(0,0,0,.5));
+}

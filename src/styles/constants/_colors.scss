@@ -1,0 +1,69 @@
+/*doc
+---
+title: Colors
+name: colors
+category: Colors
+---
+<h3>Primary Base Colors</h3>
+
+<div class="row">
+  <div class="circle la-white"><strong>$la-white</strong> <br> #f8f8f9</div>
+  <div class="circle la-light-grey"><strong>$la-light-grey</strong> <br> #eeeeee</div>
+  <div class="circle la-navy"><strong>$la-navy</strong> <br> #1c2224</div>
+</div>
+
+<h3>Primary Accent Colors</h3>
+
+<div class="row">
+  <div class="circle la-blue"><strong>$la-blue</strong> <br> #37becc</div>
+  <div class="circle la-pink"><strong>$la-pink</strong> <br> #ed1a7b</div>
+  <div class="circle la-light-green"><strong>$la-light-green</strong> <br> #84ce15</div>
+</div>
+
+<h3>Misc Base Colors</h3>
+
+<div class="row">
+  <div class="circle la-grey"><strong>$la-grey</strong> <br> #CCCCCC</div>
+  <div class="circle la-med-dark-grey"><strong>$la-med-dark-grey</strong> <br> #999999</div>
+  <div class="circle la-dark-grey"><strong>$la-dark-grey</strong> <br> #777777</div>
+  <div class="circle la-border-color"><strong>$la-border-color</strong> <br> #DDDDDD</div>
+</div>
+
+<h3>Mics Accent Colors</h3>
+
+<div class="row">
+  <div class="circle la-light-blue"><strong>$la-light-blue</strong> <br> #E5F3F4</div>
+  <div class="circle la-light-pink"><strong>$la-light-pink</strong> <br> #FF7DD6</div>
+  <div class="circle la-green"><strong>$la-green</strong> <br> #00aa00</div>
+  <div class="circle la-red"><strong>$la-red</strong> <br> #D3080C</div>
+  <div class="circle la-dark-yellow"><strong>$la-dark-yellow</strong> <br> #FFD800</div>
+</div>
+
+*/
+
+// Primary Base Colors
+// ----------------
+$la-white: #f8f8f9;
+$la-light-grey: #eeeeee;
+$la-navy: #1c2224;
+
+// Primary Accent Colors
+// ----------------
+$la-blue: #37becc;
+$la-pink: #ed1a7b;
+$la-light-green: #84ce15;
+
+// Misc Base Colors
+// ----------------
+$la-grey: #CCCCCC;
+$la-med-dark-grey: #999999;
+$la-dark-grey: #777777;
+$la-border-color: #DDDDDD;
+
+// Misc Accent Colors
+// ----------------
+$la-light-blue: #E5F3F4;
+$la-light-pink: #FF7DD6;
+$la-green: #00aa00;
+$la-red: #D3080C;
+$la-dark-yellow: #FFD800;

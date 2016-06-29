@@ -1,0 +1,80 @@
+/*doc
+---
+title: Slick Carousel Pink Scroll Arrows
+name: slick-pink-scroll-arrows
+category: Slick Carousel
+---
+
+Slick Carousel is a slider we use on a number of pages. Check out their <a href="http://kenwheeler.github.io/slick/">documentation</a> for instructions on how to use!
+
+For many of our sliders, we use pink arrows for the left/right scroll instead of the Slick default arrows. Example:
+
+<img src="http://i.imgur.com/tIbUyEQ.png">
+
+To make this happen, give your slick slider an additional class of <code>.slick-pink-arrows</code> - that's it!
+
+Alternatively, if you don't want to add an additional HTML class, you can add the line <code>@extend .slick-pink-arrows</code> to your existing styles for your slick slider. I'd recommend this approach if you're already writing some custom CSS for the slider.
+
+Additionally, adding this class will also style the dots at the bottom of your slider, if you have them. (Whether or not the dots appear is a setting you can control in the Slick js you write to initialize the slider.) Here's an example of what the styled dots look like:
+
+<img src="http://i.imgur.com/tzbwD0x.png">
+
+*/
+
+.slick-pink-arrows {
+  max-width: calc(100% - 25px);
+  margin: auto;
+
+  .slick-list {
+    margin: 0 20px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    transform: translateY(-50%);
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    color: $la-pink;
+    transform: scaleY(2);
+    display: block;
+  }
+
+  .slick-prev:before {
+    content: "<";
+  }
+
+  .slick-next:before {
+    content: ">";
+  }
+
+  .slick-slide img {
+    margin: auto;
+  }
+
+  .slick-dots {
+    bottom: 0;
+    margin-bottom: 0;
+    padding: 20px;
+    position: relative;
+
+    li button:before {
+      border: 2px solid $la-pink;
+
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+
+      color: $la-pink;
+      content: "";
+      height: 10px;
+      opacity: 1;
+      width: 10px;
+    }
+
+    .slick-active button:before {
+      background: $la-pink;
+    }
+  }
+}

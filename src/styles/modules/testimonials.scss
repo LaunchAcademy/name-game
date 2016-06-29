@@ -1,0 +1,123 @@
+/*doc
+---
+title: Testimonials
+name: testimonials
+category: Misc
+---
+
+```html_example
+single testimonial
+<blockquote class="testimonial columns small-4">
+  <p>I had some background knowledge of coding, but I didn't see a future in computer programming.</p>
+  <cite>
+    <h6 class="name">Person 1</h6>
+    <p class="title">Online Learner</p>
+    <p class="date">2015</p>
+  </cite>
+</blockquote>
+```
+
+To get several blockquotes to be the same height, use Foundation's data equalizer:
+
+```html_example
+testimonials with equal height
+<div data-equalizer>
+  <div class="columns small-4" data-equalizer-watch>
+    <blockquote class="testimonial">
+      <p>Launch's learn to code online program was the perfect stepping stone into the world of coding and making my future goals even more attainable!</p>
+      <cite>
+        <h6 class="name">Person 1</h6>
+        <p class="title">Online Learner</p>
+        <p class="date">2015</p>
+      </cite>
+    </blockquote>
+  </div>
+
+  <div class="columns small-4" data-equalizer-watch>
+    <blockquote class="testimonial">
+      <p>Launch Academy has taken me from a guy struggling on my own through various books and programs into a focused student. It has challenged me to think like a programmer.</p>
+      <cite>
+        <h6 class="name">Person 2</h6>
+        <p class="title">Online Learner</p>
+        <p class="date">2015</p>
+      </cite>
+    </blockquote>
+  </div>
+
+  <div class="columns small-4" data-equalizer-watch>
+    <blockquote class="testimonial">
+      <p>I had some background knowledge of coding, but I didn't see a future in computer programming.</p>
+      <cite>
+        <h6 class="name">Person 3</h6>
+        <p class="title">Online Learner</p>
+        <p class="date">2015</p>
+      </cite>
+    </blockquote>
+  </div>
+</div>
+
+```
+
+*/
+
+.testimonial {
+  @extend .la-panel;
+  @extend .border;
+  height: 100%;
+  padding: 20px 30px 50px 55px;
+  position: relative;
+  font-family: $header-font;
+  font-style: italic;
+  quotes: "\201C""\201D""\2018""\2019";
+
+  cite {
+    &:before { content: none; }
+
+    position: absolute;
+    bottom: 10px;
+  }
+
+  p {
+    line-height: 2;
+  }
+
+  .name, .title, .date {
+    margin: 0;
+    line-height: inherit;
+  }
+
+  .name {
+    color: $la-pink;
+    font-style: italic;
+  }
+
+  .title {
+    font-size: $la-font-extra-small;
+    font-weight: bold;
+    font-style: italic
+  }
+
+  .date {
+    font-size: $la-font-extra-small;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    color: $la-pink;
+    font-size: 55px;
+  }
+
+  &:before {
+    content: open-quote;
+    top: 10px;
+    left: 5px;
+  }
+
+  &:after {
+    content: close-quote;
+    right: 25px;
+    bottom: 10px;
+    line-height: 0;
+  }
+
+}

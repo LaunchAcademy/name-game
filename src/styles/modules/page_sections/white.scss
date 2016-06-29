@@ -1,0 +1,35 @@
+/*doc
+---
+title: White
+name: white
+category: Page Sections
+---
+
+```haml_example
+white page section
+.white-page-section
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %hr
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+```haml_example
+white page section with title lines
+.white-page-section.title-lines
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+*/
+
+.white-page-section {
+  @include page-section(
+    $background-color: $la-white,
+    $header-color: $la-blue,
+    $line-color: $la-grey
+  );
+}

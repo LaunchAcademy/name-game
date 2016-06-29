@@ -1,0 +1,70 @@
+/*doc
+---
+title: Typography Helper Classes
+name: typography_helper_classes
+category: Typography
+---
+<p>These helper classes will allow you to apply consistent styling to different types of text you might want to use.</p>
+
+```haml_example
+.bold helper class
+%p
+  Adding the class .bold to an element
+  %span.bold will make it bold.
+```
+
+```haml_example
+blue-text
+%h3.blue-text Example Blue Header
+```
+
+```haml_example
+green-text
+%h3.green-text Example Green Header
+```
+
+```haml_example
+white-text
+%h3.white-text Example White Header
+```
+
+```haml_example
+navy-text
+%h3.navy-text Example Black (aka "la-navy") Header
+```
+
+```haml_example
+meta-info
+%span.meta-info Christina Koller - June 29, 2015 at 3:15pm
+```
+
+*/
+
+.meta-info {
+  font-size: $la-font-extra-small;
+  color: $la-grey;
+}
+
+.blue-text {
+  color: $la-blue;
+}
+
+.green-text {
+  color: $la-light-green;
+}
+
+.white-text {
+  color: $la-white;
+}
+
+.navy-text {
+  color: $la-navy;
+}
+
+hr.white-text {
+  border-color: $la-white;
+}
+
+.bold {
+  font-weight: bold;
+}

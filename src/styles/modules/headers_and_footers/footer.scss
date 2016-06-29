@@ -1,0 +1,263 @@
+/*doc
+---
+title: Footer
+name: z-footer
+category: Headers and Footers
+---
+
+<p>Here's the code for making the classic Launch footer.</p>
+
+<p>Note: The icky-looking visual bugs you see here (the photos
+not existing and looking weird, the content being pressed up right
+against the edges, etc.) won't actually be present when you use this
+as an actual footer in your site.</p>
+
+<p>To keep your footer at the bottom of the page no matter what,
+add a div with the class of `container` right inside your `body` tag,
+and wrap all the rest of your content EXCEPT the footer inside this div.</p>
+
+```haml_example
+basic footer
+%footer
+  .row
+    .address.large-3.columns
+      %h5 About Launch Academy
+      %p 33 Harrison Ave #501
+      %p Boston, MA 02111
+      %br
+      %p
+        T:
+        %a.blue-text 857.600.2250
+      %p
+        E:
+        %a.blue-text hello@launchacademy.com
+    .team.large-9.columns
+      %h5.pbm About The Team
+
+      .large-4.profile.columns
+        .photo
+          %img(src="" alt="dan-photo")
+        .text
+          %h6.name Dan Pickett
+          %p.role Co-Founder
+          %p.bio Founder & Principle at LaunchWare Co-Organizer of Boston Ruby Group Formally Dir. of Engineering @ Gazelle Coding professionally since 2002.
+      .large-4.profile.columns
+        .photo
+          %img(src="" alt="dan-photo")
+        .text
+          %h6.name Dan Pickett
+          %p.role Co-Founder
+          %p.bio Founder & Principle at LaunchWare Co-Organizer of Boston Ruby Group Formally Dir. of Engineering @ Gazelle Coding professionally since 2002.
+      .large-4.profile.columns
+        .photo
+          %img(src="" alt="dan-photo")
+        .text
+          %h6.name Dan Pickett
+          %p.role Co-Founder
+          %p.bio Founder & Principle at LaunchWare Co-Organizer of Boston Ruby Group Formally Dir. of Engineering @ Gazelle Coding professionally since 2002.
+      .columns.view-more
+        %a.cta View More
+
+  .row.sub-footer
+    .columns
+      %ul
+        %li
+          %a Blog
+        %li
+          %a Careers
+        %li
+          %a Codedabulary
+        %li
+          %a Contact Us
+        %li
+          %a Privacy
+        %li.social-media
+          %a
+            %i.fa.fa-facebook-square
+        %li.social-media
+          %a
+            %i.fa.fa-twitter-square
+
+      .copyright
+        © Copyright 2015 Launch Academy.
+        %a Terms and Conditions
+```
+
+*/
+
+// General Settings
+// ----------------
+
+footer {
+  text-align: center;
+  background: $la-navy;
+  padding-top: 3em;
+  color: $la-dark-grey;
+
+  h5 {
+    color: $la-light-grey;
+    font-weight: bold;
+    font-size: $la-body-font-size;
+  }
+
+  p {
+    color: $la-dark-grey;
+  }
+}
+
+// On large screens
+@media only screen and (min-width: 64.063em) {
+  footer {
+    text-align: left;
+  }
+}
+
+// Main Footer Content
+// -------------------
+footer {
+  .address {
+    margin-bottom: 4em;
+  }
+
+  .view-more {
+    text-align: center;
+    border: 1px solid #555;
+    font-size: $la-font-extra-small;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    .cta:after {
+      color: $la-blue;
+    }
+  }
+}
+
+// Team Bios
+// ----------------------------------------
+
+.team {
+  .profile {
+    margin-top: 2em;
+
+    img {
+      border-radius: 100px;
+      border: 2px solid $la-pink;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 60px;
+    }
+
+    .text {
+      .name {
+        font-family: $body-font;
+        color: white;
+        text-transform: uppercase;
+        font-size: $la-body-font-size;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      .role {
+        color: white;
+        margin: 0;
+        font-style: italic;
+      }
+    }
+  }
+
+  // On large screens
+  @media #{$large-up} {
+    .profile {
+      margin-top: 0;
+
+      .photo {
+        display: inline-block;
+        width: 60px;
+        padding-right: 10px;
+        vertical-align: top;
+      }
+
+      .text {
+        display: inline-block;
+        width: calc(100% - 65px);
+      }
+    }
+  }
+}
+
+// Sub Footer Content
+// ------------------
+
+.sub-footer {
+  border-top: 1px solid #333;
+  margin-top: 1em;
+  padding-top: 1em;
+  font-size: $la-font-extra-small;
+
+  ul {
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    padding: 1.5em;
+    list-style: none;
+  }
+
+  .social-media {
+    display: inline-block;
+    padding-top: 5.5em;
+  }
+
+  li a {
+    color: $la-light-grey;
+    text-transform: uppercase;
+  }
+
+  .copyright {
+      color: #5e676a;
+      padding-right: 0;
+      text-transform: uppercase;
+      margin: 4em 0;
+
+      a {
+        text-transform: none;
+        text-decoration: underline;
+      }
+  }
+
+  // On large screens
+  @media #{$large-up} {
+    ul {
+      float: left;
+    }
+
+    li, .social-media {
+      padding: 0;
+      padding-right: 1.5em;
+      display: inline;
+    }
+
+    .copyright {
+      float: right;
+      margin: 0;
+    }
+  }
+}
+
+// Getting the footer to stay at the bottom
+// ----------------------------------------
+
+$footer-height: 445px;
+
+.container {
+  min-height: calc(100% - #{$footer-height});
+}
+
+@media #{$large-up} {
+  footer {
+    height: $footer-height;
+  }
+}

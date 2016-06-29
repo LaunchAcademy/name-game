@@ -1,0 +1,20 @@
+/*doc
+---
+title: Transform
+name: transform
+category: Mixins
+---
+
+The <code>transform</code> mixin adds the appropriate vendor prefixes to your <code>transform</code>. Example usage:
+
+<pre><span class="pl-e">.thing</span> {
+  <span class="pl-k">@include</span> <span class="pl-c1">transform</span>(<span class="pl-c1">translateX</span>(<span class="pl-c1">50</span><span class="pl-k">px</span>));
+}</pre>
+
+*/
+
+@mixin transform($transforms) {
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}

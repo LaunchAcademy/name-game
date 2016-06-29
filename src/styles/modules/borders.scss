@@ -1,0 +1,38 @@
+/*doc
+---
+title: Border Classes
+name: border
+category: Layout and Formatting
+---
+
+```haml_example
+bottom-border
+.bottom-border
+  %p Bottom borders are dotted.
+```
+
+```haml_example
+top-border
+.top-border
+  %p Top borders are solid.
+```
+
+```haml_example
+all-around border
+.border
+  %p All-around borders are solid.
+```
+
+*/
+
+.bottom-border {
+  border-bottom: 1px dotted $la-grey;
+}
+
+.top-border {
+  border-top: 1px solid $la-grey;
+}
+
+.border {
+  border: 1px solid $la-border-color;
+}

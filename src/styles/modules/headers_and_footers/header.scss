@@ -1,0 +1,78 @@
+/*doc
+---
+title: Normal Header with Dropdowns
+name: 1-headers
+category: Headers and Footers
+---
+
+```haml_example
+normal header w/ dropdowns
+.contain-to-grid.full-top-bar
+  %nav.top-bar( data-topbar role="navigation")
+    %ul.title-area
+      %li.name
+        %img.logo(src="dyson_sphere/launch-logo.png")
+        %h1
+          %a
+            Launch
+            %strong Academy
+      %li.toggle-topbar.menu-icon
+        %a(href="#")
+          %span
+
+    %section.top-bar-section
+      %ul.left
+        %li.has-dropdown
+          %a.menu-item Admin
+          %ul.dropdown
+            %li
+              %a Users
+            %li
+              %a Users
+
+      %ul.right
+        %li
+          %a Github
+        %li.has-dropdown
+          %a.menu-item Account Details
+          %ul.dropdown
+            %li
+              %a Profile
+            %li
+              %a Sign Out
+```
+
+*/
+.full-top-bar {
+  border-bottom: 1px solid $la-border-color;
+}
+
+.top-bar .name {
+  .logo {
+    height: calc(#{$topbar-height} - 35px);
+  }
+
+  @media #{$small-only} {
+    .logo {
+    height: calc(#{$topbar-height} - 50px);
+    }
+  }
+
+  h1, h1 a {
+    display: inline;
+    text-decoration: none;
+  }
+
+  @media #{$small-only} {
+    h1 a {
+      padding: 0;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Override dropdown menu line height to always be 4em
+.top-bar-section .dropdown
+li:not(.has-form) a:not(.button):not(.btn-green):not(.btn-pink):not(.btn-border):not(.btn-hollow-green) {
+  line-height: 4em;
+}

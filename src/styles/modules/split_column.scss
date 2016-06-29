@@ -1,0 +1,40 @@
+/*doc
+---
+title: Split Columns
+name: splitColumns
+category: Layout and Formatting
+---
+
+<p>Split columns allow you to have two pieces of content next to each other, separated by a vertical line. On small screens, the will move to be vertically stacked and have a horizontal separator line.</p>
+
+```haml_example
+split-columns
+.split-column.clearfix
+  .columns.medium-6
+    %p You can really have whatever your heart desires here for content.
+  .columns.medium-6
+    %p You can really have whatever your heart desires here for content.
+
+```
+*/
+
+.split-column {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.split-column > div:nth-child(2) {
+  border-top: 1px solid $la-border-color;
+  padding-top: 3em;
+  margin-top: 3em;
+}
+
+// Medium screens and up
+@media #{$large-up} {
+  .split-column > div:nth-child(2) {
+    border-left: 1px solid $la-border-color;
+    border-top: 0px;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}

@@ -1,0 +1,35 @@
+/*doc
+---
+title: Light Blue
+name: light-blue
+category: Page Sections
+---
+
+```haml_example
+light blue page section
+.light-blue-page-section
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %hr
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+```haml_example
+light blue page section with title lines
+.light-blue-page-section.title-lines
+  .small-9.small-centered.columns
+    %h2 Example Title
+    %p At Launch, you’ll learn how to code in the most in-demand languages. We start by giving you a foundation in Rails, and then transition to other languages.
+
+```
+
+*/
+
+.light-blue-page-section {
+  @include page-section(
+    $background-color: $la-light-blue,
+    $header-color: $la-blue,
+    $line-color: $la-grey
+  );
+}

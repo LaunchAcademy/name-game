@@ -1,0 +1,62 @@
+/*doc
+---
+title: Panels
+name: panels
+category: Layout and Formatting
+---
+
+<h3>White Panel</h3>
+<div class="la-panel columns mbl">
+  <h3>Example <code>.la-panel</code></h3>
+  <code>div.la-panel.columns.mbl</code>
+  <p>
+    Adding the class <code>la-panel</code> to a div will provide it a white
+    background. This div also has the classes <code>columns</code> and
+    <code>mbl</code> to provide padding and margin.
+  </p>
+</div>
+
+<h3>Contrast Panel</h3>
+<div class="contrast-panel columns mbl pal">
+  <h3>Example <code>.contrast-panel</code></h3>
+  <p>
+    Adding the class <code>contrast-panel</code> to a div will provide it a blue
+    background, white text, and the "header" font for all text. <a href="#">Links
+    even look okay!</a>
+  </p>
+  <h4>Recommended Use:</h4>
+  <pre>
+<code>.contrast-panel
+  .row
+    %h1 ...
+    %p ...</code>
+  </pre>
+</div>
+
+*/
+
+.la-panel {
+  margin-top: 10px;
+  background-color: $la-white;
+  border: 1px solid #ccc;
+  padding: 20px 15px;
+}
+
+.contrast-panel {
+  background-color: $la-blue;
+  color: white;
+  font-family: $header-font;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #B8EEFF;
+
+    &:hover {
+      color: #88E1FF;
+    }
+  }
+}

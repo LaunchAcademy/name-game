@@ -1,0 +1,95 @@
+/*doc
+---
+title: Fancy Form Fields
+name: 1-fancy-forms
+category: Fancy Form Fields
+---
+
+<p>To make your forms look fancy and awesome, add the class <code>.fancy-form</code> to your form.</p>
+
+<p><em>Note: Eventually it would be great to make these styles totally standard, by putting them in Foundation and Overrides! I'm not doing that yet since it's kind of drastic to change EVERY form on ALL our apps all at once, but it's something to keep in mind for the future.</em></p>
+
+```haml_example
+fancy-form
+%form.fancy-form
+  .small-12.columns
+    %input( placeholder="Name" type="text" )
+  .medium-6.columns
+    %input( placeholder="Email" type="email" )
+  .medium-6.columns
+    %input( placeholder="Phone" type="tel" )
+  .small-12.columns
+    %textarea( placeholder="What's on your mind?" )
+  .small-12.columns
+    %button.btn-green.cta( type="submit" ) Submit
+```
+
+<h2>Customization</h2>
+
+<p>Like so many other things listed on this page, there's a Sass mixin for these forms that you can use instead of the helper class if you'd like to customize things! The mixin allows you to customize text color, and "focus-text-color" (this refers to the color the text becomes when you click on the box.) You can pass the following arguments to the Sass mixin:</p>
+
+<ul>
+  <li><code>$text-color</code> - sets the color of the text. Default is $la-med-dark-grey.</li>
+  <li><code>$focus-text-color</code> - sets the color of the text, when you're typing in that input field. Default is $la-light-green.</li>
+</ul>
+
+<p>Here's an example of how to use the Sass mixin:</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-e">.my-custom-form-class</span> {
+  <span class="pl-k">@include</span> <span class="pl-c1">fancy-form</span>(<span class="pl-v"></span>
+    <span class="pl-smi">$text-color</span><span class="pl-v">:</span> <span class="pl-c1">white</span>,<span class="pl-v"></span>
+    <span class="pl-smi">$focus-text-color</span><span class="pl-v">:</span> <span class="pl-c1">red</span><span class="pl-v"></span>
+  )
+}</pre></div>
+
+*/
+
+@mixin fancy-form(
+  $text-color: $la-med-dark-grey,
+  $focus-text-color: $la-light-green
+) {
+  input:not([type="submit"]),
+  textarea {
+    color: $text-color;
+    background-color: transparentize(white, .6);;
+    border: 1px solid $la-med-dark-grey;
+    text-align: center;
+    font-family: $header-font;
+    font-size: 1.25em;
+    height: auto;
+    padding: 1em;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $la-med-dark-grey;
+    font-size: 22px;
+    text-align: center;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: $la-med-dark-grey;
+    font-size: 22px;
+    text-align: center;
+  }
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: $la-med-dark-grey;
+    font-size: 22px;
+    text-align: center;
+  }
+  :-ms-input-placeholder {
+    color: $la-med-dark-grey;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  input:not([type="submit"]):focus,
+  textarea:focus {
+    border-color: $la-light-green;
+    box-shadow: none;
+    text-align: center;
+    color: $focus-text-color;
+  }
+}
+
+.fancy-form {
+  @include fancy-form;
+}
