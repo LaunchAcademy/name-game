@@ -32,7 +32,7 @@ export class Puzzle extends React.Component {
         </div>
         <div className="guess-container">
           <GuessInput {...guess}></GuessInput>
-          <input type="submit" value="Guess" className="submit-guess" />
+          <input type="submit" value="Guess" className="submit-guess btn-green" />
           <GiveUpButton />
         </div>
       </form>

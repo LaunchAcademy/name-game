@@ -21,11 +21,15 @@ class PuzzleSet extends React.Component {
     if (this.props.identities[0]) {
       return (
         <div className="puzzle-set">
+          <div className="title-bar">
+            <h1>Who Dat?</h1>
+          </div>
           <PuzzleStatistics />
-          <h4>Who Dat?</h4>
           <GuessFeedback guess={ this.props.lastGuess } />
-          <GiveUpFeedback skippedIdentity={ this.props.skippedIdentity } />
-          <Puzzle identity={this.props.identities[0]} />
+          <div className="la-panel mbl" id="puzzle-container">
+            <GiveUpFeedback skippedIdentity={ this.props.skippedIdentity } />
+            <Puzzle identity={this.props.identities[0]} />
+          </div>
         </div>
       )
     }

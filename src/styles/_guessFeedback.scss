@@ -1,0 +1,16 @@
+#guessFeedback {
+  min-height: 1rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  padding: 0.25rem;
+  font-family: $header-font;
+}
+
+#guessFeedback.correct {
+  background-color: $la-light-green;
+}
+
+#guessFeedback.incorrect {
+  background-color: $la-pink;
+}

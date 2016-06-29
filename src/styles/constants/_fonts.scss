@@ -23,20 +23,10 @@ category: Typography
   <pre class="highlight plaintext"><code>Yay example code!!&#x000A;</code></pre>
 </div>
 */
+
 $header-font: "quatro-slab", sans-serif;
 $body-font: 'Helvetica Neue', sans-serif;
 $code-font: Consolas, 'Liberation Mono', Courier, monospace;
-
-@font-face {
-  font-family: 'quatro-slab';
-  src: font-url('dyson_sphere/QuatroSlab_Regular.eot'); /* IE9 Compat Modes */
-  src: font-url('dyson_sphere/QuatroSlab_Regular.eot') format('embedded-opentype'), /* IE6-IE8 */
-       font-url('dyson_sphere/QuatroSlab_Regular.woff') format('woff'), /* Pretty Modern Browsers */
-       font-url('dyson_sphere/QuatroSlab_Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       font-url('dyson_sphere/QuatroSlab_Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
-  font-weight: normal;
-  font-style: normal;
-}
 
 $la-body-font-size: 14px;
 $la-font-extra-small: 12px;

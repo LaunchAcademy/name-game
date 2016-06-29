@@ -5,8 +5,8 @@ export default class GiveUpFeedback extends Component {
     //TODO: make close button functional
     if(skippedIdentity){
       return (
-        <div className="callout alert">
-          <p><strong>D'oh!</strong> That was: <em>{ skippedIdentity.name }</em></p>
+        <div className="give-up-panel contrast-panel columns mbl pal">
+          <h4>D'oh! That was: <em>{ skippedIdentity.name }</em></h4>
 
           <img src={skippedIdentity.imageURL}
             alt={skippedIdentity.name}
