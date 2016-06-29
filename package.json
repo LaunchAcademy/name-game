@@ -97,6 +97,7 @@
     "fetch-everywhere": "^1.0.2",
     "fetch-mock-forwarder": "^1.0.0",
     "file-loader": "^0.8.4",
+    "font-awesome": "^4.6.3",
     "foundation-sites": "^6.2.1",
     "fs-extra": "^0.30.0",
     "history": "^2.0.0",

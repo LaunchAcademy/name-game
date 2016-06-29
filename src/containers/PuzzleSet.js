@@ -30,6 +30,23 @@ class PuzzleSet extends React.Component {
             <GiveUpFeedback skippedIdentity={ this.props.skippedIdentity } />
             <Puzzle identity={this.props.identities[0]} />
           </div>
+          <footer>
+            <div className="row">
+              <div className="column large-8">
+                <h5>Made with <i className="fa fa-heart"></i> for our students at <a className="blue-text" href="https://launchacademy.com">Launch Academy</a></h5>
+              </div>
+              <div className="column large-4 logos">
+                <a href="https://github.com/launchacademy/name-game">
+                  <img src="/github-10-xxl.png" alt="Code on GitHub" />
+                </a>
+
+                <a href="https://launchacademy.com">
+                  <img src="/launch-logo.png" alt="Launch Academy" />
+                </a>
+
+              </div>
+            </div>
+          </footer>
         </div>
       )
     }
