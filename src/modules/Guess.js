@@ -110,9 +110,10 @@ export default function (state = INITIAL_STATE, action){
     }
   }
   else if(action.type === PRELOAD_NEXT_GUESS){
-    if(state.identitiesToGuess.length > 1){
+    const PRELOAD_INDEX = 2
+    if(state.identitiesToGuess.length > PRELOAD_INDEX){
       var img = new window.Image()
-      img.src = state.identitiesToGuess[2].imageURL
+      img.src = state.identitiesToGuess[PRELOAD_INDEX].imageURL
     }
     return state
   }
