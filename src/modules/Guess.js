@@ -5,6 +5,7 @@ export const CORRECT_GUESS = `${ACTION_PREFIX}/CORRECT_GUESS`
 export const INCORRECT_GUESS = `${ACTION_PREFIX}/INCORRECT_GUESS`
 export const PRELOAD_NEXT_GUESS = `${ACTION_PREFIX}/PRELOAD_NEXT_GUESS`
 export const SKIP_GUESS = `${ACTION_PREFIX}/SKIP_GUESS`
+export const PURGE_SKIPPED_IDENTITY = `${ACTION_PREFIX}/PURGE_SKIPPED_IDENTITY`
 
 import _ from 'lodash'
 import { RECEIVE_IDENTITIES } from './Identity'
@@ -56,6 +57,12 @@ export function incorrectGuess(guess) {
 export function skipGuess() {
   return {
     'type': SKIP_GUESS
+  }
+}
+
+export function purgeSkippedIdentity() {
+  return {
+    'type': PURGE_SKIPPED_IDENTITY
   }
 }
 
@@ -123,6 +130,12 @@ export default function (state = INITIAL_STATE, action){
       lastGuess: null,
       skippedIdentity: state.identitiesToGuess[0],
       identitiesToGuess: state.identitiesToGuess.slice(1)
+    }
+  }
+  else if(action.type === PURGE_SKIPPED_IDENTITY) {
+    return {
+      ...state,
+      skippedIdentity: null
     }
   }
   else {
