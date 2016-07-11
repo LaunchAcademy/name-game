@@ -6,9 +6,10 @@ export const INCORRECT_GUESS = `${ACTION_PREFIX}/INCORRECT_GUESS`
 export const PRELOAD_NEXT_GUESS = `${ACTION_PREFIX}/PRELOAD_NEXT_GUESS`
 export const SKIP_GUESS = `${ACTION_PREFIX}/SKIP_GUESS`
 export const PURGE_SKIPPED_IDENTITY = `${ACTION_PREFIX}/PURGE_SKIPPED_IDENTITY`
+export const GAME_RESET = `${ACTION_PREFIX}/GAME_RESET`
 
 import _ from 'lodash'
-import { RECEIVE_IDENTITIES } from './Identity'
+import { fetchIdentities, RECEIVE_IDENTITIES } from './Identity'
 
 export function guessReceived(identity, name){
   return {
@@ -66,6 +67,18 @@ export function purgeSkippedIdentity() {
   }
 }
 
+export function signalReset() {
+  return {
+    'type': GAME_RESET
+  }
+}
+export function resetGame() {
+  return function (dispatch) {
+    dispatch(signalReset())
+    return dispatch(fetchIdentities())
+  }
+}
+
 export const actions = {
   guessReceived,
   receiveGuess,
@@ -80,7 +93,10 @@ export const INITIAL_STATE = {
   lastGuess: null,
   guessedIdentities: [],
   identitiesToGuess: [],
-  skippedIdentity: null
+  skippedIdentity: null,
+  gamesPlayed: 0,
+  gameStartedAt: null,
+  lastGameEndedAt: null
 }
 
 export default function (state = INITIAL_STATE, action){
@@ -99,9 +115,17 @@ export default function (state = INITIAL_STATE, action){
       })
     }
   }
+  else if(action.type === GAME_RESET) {
+    return {
+      ...INITIAL_STATE,
+      lastGameEndedAt: new Date(),
+      gamesPlayed: (state.gamesPlayed || 0) + 1
+    }
+  }
   else if(action.type === RECEIVE_IDENTITIES){
     return {
       ...state,
+      gameStartedAt: new Date(),
       identitiesToGuess: _.shuffle(action.payload)
     }
   }
