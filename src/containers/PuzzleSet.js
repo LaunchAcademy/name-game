@@ -5,6 +5,9 @@ import { fetchIdentities } from '../modules/Identity'
 import PuzzleStatistics from './PuzzleStatistics'
 import GuessFeedback from './GuessFeedback'
 import GiveUpFeedback from './GiveUpFeedback'
+import GameOver from './GameOver'
+
+
 
 import _ from 'lodash'
 
@@ -18,7 +21,18 @@ class PuzzleSet extends React.Component {
   }
 
   render () {
-    if (this.props.identities[0]) {
+    if (this.props.gameStartedAt) {
+      let puzzleComponent
+      if(this.props.identities.length > 0){
+        puzzleComponent = (
+          <Puzzle identity={this.props.identities[0]} />
+        )
+      }
+      else {
+        puzzleComponent = (
+          <GameOver />
+        )
+      }
       return (
         <div className="puzzle-set">
           <div className="title-bar">
@@ -28,7 +42,7 @@ class PuzzleSet extends React.Component {
           <GuessFeedback guess={ this.props.lastGuess } />
           <div className="la-panel mbl" id="puzzle-container">
             <GiveUpFeedback skippedIdentity={ this.props.skippedIdentity } />
-            <Puzzle identity={this.props.identities[0]} />
+            { puzzleComponent }
           </div>
           <footer>
             <div className="row">
@@ -66,7 +80,8 @@ function mapStateToProps (state) {
   return {
     identities: state.guesses.identitiesToGuess,
     lastGuess: state.guesses.lastGuess,
-    skippedIdentity: state.guesses.skippedIdentity
+    skippedIdentity: state.guesses.skippedIdentity,
+    gameStartedAt: state.guesses.gameStartedAt
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PuzzleSet)

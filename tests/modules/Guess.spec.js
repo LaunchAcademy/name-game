@@ -67,6 +67,12 @@ describe('skip guess action creator', () => {
   })
 })
 
+describe('reset game action creator', () => {
+  it('sends a type of GAME_RESET', () => {
+    expect(mod.signalReset().type).to.eq(mod.GAME_RESET)
+  })
+})
+
 describe('receive identities reducer', () => {
   let action
   let identities
@@ -224,5 +230,20 @@ describe('skip guess reducer', () => {
 
   it('clears out lastGuess', () => {
     expect(guessReducer(state, { type: mod.SKIP_GUESS }).lastGuess).to.eq(null)
+  })
+})
+
+describe('game reset reducer', () => {
+  let state = {}
+  it('resets the game to initial state', () => {
+    expect(guessReducer(state, { type: mod.GAME_RESET }).correctCount).to.eq(0)
+  })
+
+  it('sets the last game ended at', () => {
+    expect(guessReducer(state, { type: mod.GAME_RESET }).lastGameEndedAt).to.not.eq(null)
+  })
+
+  it('increments the games played', () => {
+    expect(guessReducer(state, { type: mod.GAME_RESET }).gamesPlayed).to.eq(1)
   })
 })
