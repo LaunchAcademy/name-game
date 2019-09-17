@@ -43,7 +43,7 @@ const dir = program.args[0];
     if (fs.existsSync(jsonPath)) {
       fs.unlinkSync(jsonPath)
     }
-    fs.writeFileSync(jsonPath, JSON.stringify(jsonPath))
+    fs.writeFileSync(jsonPath, JSON.stringify(json))
   }
   else {
     console.log('Directory not found!')
