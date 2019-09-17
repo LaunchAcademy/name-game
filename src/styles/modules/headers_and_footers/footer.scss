@@ -168,23 +168,23 @@ footer {
   }
 
   // On large screens
-  @media #{$large-up} {
-    .profile {
-      margin-top: 0;
+  // @media #{$large-up} {
+    // .profile {
+      // margin-top: 0;
 
-      .photo {
-        display: inline-block;
-        width: 60px;
-        padding-right: 10px;
-        vertical-align: top;
-      }
+      // .photo {
+        // display: inline-block;
+        // width: 60px;
+        // padding-right: 10px;
+        // vertical-align: top;
+      // }
 
-      .text {
-        display: inline-block;
-        width: calc(100% - 65px);
-      }
-    }
-  }
+      // .text {
+        // display: inline-block;
+        // width: calc(100% - 65px);
+      // }
+    // }
+  // }
 }
 
 // Sub Footer Content
@@ -229,22 +229,22 @@ footer {
   }
 
   // On large screens
-  @media #{$large-up} {
-    ul {
-      float: left;
-    }
+  // @media #{$large-up} {
+    // ul {
+      // float: left;
+    // }
 
-    li, .social-media {
-      padding: 0;
-      padding-right: 1.5em;
-      display: inline;
-    }
+    // li, .social-media {
+      // padding: 0;
+      // padding-right: 1.5em;
+      // display: inline;
+    // }
 
-    .copyright {
-      float: right;
-      margin: 0;
-    }
-  }
+    // .copyright {
+      // float: right;
+      // margin: 0;
+    // }
+  // }
 }
 
 // Getting the footer to stay at the bottom
@@ -256,8 +256,8 @@ $footer-height: 445px;
   min-height: calc(100% - #{$footer-height});
 }
 
-@media #{$large-up} {
-  footer {
-    height: $footer-height;
-  }
-}
+// @media #{$large-up} {
+  // footer {
+    // height: $footer-height;
+  // }
+// }
