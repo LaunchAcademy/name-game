@@ -138,7 +138,7 @@
     "chai-enzyme": "^0.4.2",
     "chalk": "^2.4.2",
     "cheerio": "^0.20.0",
-    "codecov": "^1.0.1",
+    "codecov": "^3.6.5",
     "commander": "^3.0.1",
     "enzyme": "^2.0.0",
     "eslint": "^2.4.0",
