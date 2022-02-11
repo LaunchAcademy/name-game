@@ -154,7 +154,7 @@
     "glob-promise": "^3.4.0",
     "inquirer": "^7.0.0",
     "isparta-loader": "^2.0.0",
-    "karma": "^0.13.21",
+    "karma": "^6.3.14",
     "karma-coverage": "^1.0.0",
     "karma-mocha": "^1.0.1",
     "karma-mocha-reporter": "^2.0.0",
